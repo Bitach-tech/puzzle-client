@@ -1,0 +1,7 @@
+﻿{
+  "name": "Global.Services.Advertisment.Abstract",
+  "references": [
+    "GUID:dee463d024abe6a41ac7efd263f0a689",
+    "GUID:f51ebe6a0ceec4240a699833d6309b23"
+  ]
+}

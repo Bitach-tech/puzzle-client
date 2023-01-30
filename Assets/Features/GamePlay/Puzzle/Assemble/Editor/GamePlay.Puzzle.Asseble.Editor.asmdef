@@ -1,0 +1,16 @@
+{
+    "name": "GamePlay.Puzzle.Asseble.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:94f05903d4b6439a8b84f8f5bdf27729"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

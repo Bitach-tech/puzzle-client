@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aed9a2620364bbdbe1ba5a76b6b7c15, type: 3}
+  m_Name: LocalService_ImageStorage
+  m_EditorClassIdentifier: 
+  _images:
+  - {fileID: 11400000, guid: 2a34e72e9b29daa4c8745f2457615487, type: 2}
+  - {fileID: 11400000, guid: caf8b3e3a57f38843b8c9e543e7dcf53, type: 2}
+  - {fileID: 11400000, guid: d2790cd41950f9a46bca98061e4672d4, type: 2}
+  - {fileID: 11400000, guid: d1d2f87ef4a38664280e86d0f8cd359a, type: 2}
+  - {fileID: 11400000, guid: bfedeb63ec3a42c45ac67e3d7c71aadc, type: 2}
+  - {fileID: 11400000, guid: c9be3e7d91e150b48b091e7ad59c87b7, type: 2}
+  - {fileID: 11400000, guid: 74854a4d740092a419c11caabc5b75ae, type: 2}
+  - {fileID: 11400000, guid: 6d65532656ce143488db20148d3576ca, type: 2}
+  _prefab: {fileID: 7311291299993652114, guid: a2c47b2b7ef7c144890f7a498db8f0f5, type: 3}

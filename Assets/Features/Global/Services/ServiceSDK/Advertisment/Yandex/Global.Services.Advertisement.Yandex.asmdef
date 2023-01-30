@@ -1,0 +1,10 @@
+﻿{
+  "name": "Global.Services.Advertisment.Yandex",
+  "references": [
+    "GUID:dee463d024abe6a41ac7efd263f0a689",
+    "GUID:a014d34fd27b41958015de6a9adddb35",
+    "GUID:f51ebe6a0ceec4240a699833d6309b23",
+    "GUID:04243451437dcfe48b583ab43ef0a8fa",
+    "GUID:401398c75a71e5444a495125c9dd1a21"
+  ]
+}

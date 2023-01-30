@@ -1,0 +1,16 @@
+﻿{
+  "name": "Global.Services.SoundsPlayers.Runtime",
+  "references": [
+    "GUID:69d1e1ccfd5f4cd38acf6e059481c727",
+    "GUID:612edebdfdca4199818e9c62eecab20d",
+    "GUID:25e7f336b7f8413787b19e02b0438898",
+    "GUID:89ca6e1c70a64065a94e5f348c68762d",
+    "GUID:401398c75a71e5444a495125c9dd1a21",
+    "GUID:9b51a48d04164033bd0ea196e24c1113",
+    "GUID:fb9b00a9a42c4c1459774b1ef88fcd74",
+    "GUID:f51ebe6a0ceec4240a699833d6309b23",
+    "GUID:e07e6ccd9241474dbca4e70862df2bc2",
+    "GUID:9e79b5e9e89240fd9d816fa880cfdf38",
+    "GUID:67f67dcce9d9e8a43a8e45bc1fe5534c"
+  ]
+}

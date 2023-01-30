@@ -1,0 +1,7 @@
+﻿{
+  "name": "Common.UiTools",
+  "references": [
+    "GUID:5f85ab5dc178ff54c81b21f197b82d14",
+    "GUID:9b51a48d04164033bd0ea196e24c1113"
+  ]
+}

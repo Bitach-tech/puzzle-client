@@ -1,0 +1,6 @@
+﻿{
+  "name": "Global.Services.ServiceSDK.Authentications.Runtime",
+  "references": [
+    "GUID:dee463d024abe6a41ac7efd263f0a689"
+  ]
+}

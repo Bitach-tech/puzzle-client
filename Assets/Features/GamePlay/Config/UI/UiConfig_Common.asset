@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd6713dcae144798848a4e45082d262, type: 3}
+  m_Name: UiConfig_Common
+  m_EditorClassIdentifier: 
+  _brightness: {fileID: 11400000, guid: 2ebdcb5a47ac9214a8775144ce6c6ef8, type: 2}
+  _centerOffset: {fileID: 11400000, guid: 814701bd7582c9141aa9ba8fad80b00f, type: 2}
+  _falloff: {fileID: 11400000, guid: bf39b78bbbfb9634fb97c3aff7c3c4ac, type: 2}
+  _radius: {fileID: 11400000, guid: bd2b91a0844c6934293e4d25fcc6c10b, type: 2}

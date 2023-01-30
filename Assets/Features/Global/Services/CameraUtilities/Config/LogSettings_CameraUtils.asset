@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a87f2e904946e49bc5d904c0ca339f, type: 3}
+  m_Name: LogSettings_CameraUtils
+  m_EditorClassIdentifier: 
+  _isEnabled: 0
+  _logs:
+    _keys: 0000000001000000
+    _values: 0101
+  _logParameters:
+    _isMessageColored: 0
+    _color: {r: 0, g: 0, b: 0, a: 0}
+    _headers:
+    - {fileID: 8810178737084673510}
+--- !u!114 &8810178737084673510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5271532ca2141769281f3f4ccfae783, type: 3}
+  m_Name: LoggerHeader_CameraUtils
+  m_EditorClassIdentifier: 
+  _name: CameraUtils
+  _isColored: 1
+  _color: {r: 0.9490197, g: 0.7607844, b: 0.21568629, a: 1}

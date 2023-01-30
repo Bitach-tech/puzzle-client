@@ -1,0 +1,18 @@
+{
+  "name": "Common.UniversalPlate.Runtime",
+  "rootNamespace": "",
+  "references": [
+    "GUID:9940856cda82428182b997f944f27c00",
+    "GUID:1009611fca6e4eb1a04f5ebf69a67dfa",
+    "GUID:6055be8ebefd69e48b49212b09b47b2f"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

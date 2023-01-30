@@ -1,0 +1,6 @@
+﻿{
+  "name": "Common.UniversalPlate.Debug",
+  "references": [
+    "GUID:358b3f0d3c2c47289318f9ebc54a2f7d"
+  ]
+}

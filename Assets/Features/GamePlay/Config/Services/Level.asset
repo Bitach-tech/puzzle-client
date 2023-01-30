@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ab067f883cf40c4bb5d90a2ff09020d, type: 3}
+  m_Name: Level
+  m_EditorClassIdentifier: 
+  _config: {fileID: 11400000, guid: 5e3b3abdefd2de34aa31e647a9ce2a7d, type: 2}
+  _levelCamera: {fileID: 11400000, guid: 910ee659212786c41abfaf809b0f616b, type: 2}
+  _levelLoop: {fileID: 11400000, guid: d062479df73f1744e9fcf2226501a5b7, type: 2}
+  _menuUi: {fileID: 11400000, guid: 07fd34c9d670f4d48a882ff1abf30c42, type: 2}
+  _background: {fileID: 11400000, guid: a85633435c8e17c469e77b530f7882cd, type: 2}
+  _levelOverlay: {fileID: 11400000, guid: e0d952dd43cef654e80f6159664e4ed3, type: 2}
+  _imageStorage: {fileID: 11400000, guid: 576969333a3742240a00a29b2c3ef3b3, type: 2}
+  _puzzleLoop: {fileID: 11400000, guid: ddd7fde7132ec8c4582978df25652f4d, type: 2}
+  _assembler: {fileID: 11400000, guid: e9d646ebf44c8ae4aa54d54f17794ee8, type: 2}
+  _scopePrefab: {fileID: 6256164544057903142, guid: 739bd40898e14fe4ebe3aa07b287a0fb, type: 3}

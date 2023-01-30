@@ -1,0 +1,16 @@
+{
+    "name": "GamePlay.Paint.ImageStorage.Editor",
+    "rootNamespace": "",
+    "references": ["GUID:5f85ab5dc178ff54c81b21f197b82d14","GUID:18e9d57ec63640c99ded4f46129f46dc"],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
