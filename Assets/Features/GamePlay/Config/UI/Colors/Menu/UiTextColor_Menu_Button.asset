@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 466946d81e6946028ee4015e5456bb3b, type: 3}
   m_Name: UiTextColor_Menu_Button
   m_EditorClassIdentifier: 
-  _text: {r: 0.35142943, g: 0.754717, b: 0.29547882, a: 1}
+  _text: {r: 1, g: 1, b: 1, a: 1}

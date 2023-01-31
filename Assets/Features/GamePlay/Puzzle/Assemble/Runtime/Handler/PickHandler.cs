@@ -46,10 +46,15 @@ namespace GamePlay.Puzzle.Assemble.Runtime.Handler
             {
                 _parts.OnLocked(_current);
                 _targets.OnTaken(target);
-                part.Lock(target.Position);
+                part.Lock();
             }
 
             _updater.Remove(this);
+        }
+
+        public void Cancel()
+        {
+            _completion?.TrySetCanceled();
         }
 
         public void OnUpdate(float delta)

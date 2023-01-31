@@ -7,6 +7,7 @@ namespace GamePlay.Puzzle.Assemble.Runtime.Targets
         IReadOnlyList<PuzzleTarget> Available { get; }
 
         void OnTaken(PuzzleTarget target);
+        void OnTaken(int id);
         void OnReset();
     }
 }

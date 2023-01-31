@@ -17,7 +17,7 @@ namespace GamePlay.Puzzle.Assemble.Runtime
         public async UniTask<PuzzlePart> Pick()
         {
             _completion = new UniTaskCompletionSource<PuzzlePart>();
-
+            
             foreach (var part in _storage.Available)
                 part.Clicked += OnClicked;
             
@@ -27,6 +27,11 @@ namespace GamePlay.Puzzle.Assemble.Runtime
                 part.Clicked -= OnClicked;
 
             return picked;
+        }
+
+        public void Cancel()
+        {
+            _completion?.TrySetCanceled();
         }
 
         private void OnClicked(PuzzlePart part)

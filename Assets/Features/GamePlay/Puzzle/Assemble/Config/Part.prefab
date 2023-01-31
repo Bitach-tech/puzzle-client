@@ -103,6 +103,7 @@ MonoBehaviour:
   _transform: {fileID: 1294141007189314110}
   _renderer: {fileID: 1294141006797230395}
   _mask: {fileID: 5952777077518412297}
+  _collider: {fileID: 2165727026426454472}
 --- !u!331 &5952777077518412297
 SpriteMask:
   m_ObjectHideFlags: 0

@@ -3,10 +3,10 @@ using Global.Services.MessageBrokers.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Global.Services.Overlays.SoundSwitches.Runtime
+namespace GamePlay.Puzzle.Overlay.Runtime
 {
     [DisallowMultipleComponent]
-    public class GoToMenuButton : MonoBehaviour
+    public class RestartButton : MonoBehaviour
     {
         [SerializeField] private Button _button;
 
@@ -22,7 +22,7 @@ namespace Global.Services.Overlays.SoundSwitches.Runtime
 
         private void OnClicked()
         {
-            Msg.Publish(new MenuRequestEvent());
+            Msg.Publish(new RestartRequestEvent());
         }
     }
 }

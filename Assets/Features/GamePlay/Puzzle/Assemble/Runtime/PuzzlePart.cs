@@ -11,9 +11,10 @@ namespace GamePlay.Puzzle.Assemble.Runtime
         [SerializeField] private Transform _transform;
         [SerializeField] private SpriteRenderer _renderer;
         [SerializeField] private SpriteMask _mask;
+        [SerializeField] private BoxCollider2D _collider;
+
         private bool _isLocked;
         private Vector2 _defaultPosition;
-        private Vector2 _startPosition;
 
         public int Id => _id;
         public Vector2 Position => _transform.position;
@@ -27,9 +28,9 @@ namespace GamePlay.Puzzle.Assemble.Runtime
 
         public void ToStart(Sprite image)
         {
-            gameObject.SetActive(true);    
+            gameObject.SetActive(true);
             _renderer.sprite = image;
-            Lock(_defaultPosition);
+            Lock();
         }
 
         public void SetId(int id)
@@ -39,26 +40,25 @@ namespace GamePlay.Puzzle.Assemble.Runtime
 
         public void Disable()
         {
-            gameObject.SetActive(false);    
+            gameObject.SetActive(false);
         }
 
         public void MoveToStart(Vector2 position)
         {
-            _startPosition = position;
             var sequence = DOTween.Sequence();
             sequence.Append(_transform.DOMove(position, 1f).SetEase(Ease.InCirc));
             sequence.AppendCallback(Unlock);
             sequence.Play();
         }
-
-        public void Lock(Vector2 position)
+        
+        public void MoveToTarget()
         {
-            _renderer.sortingLayerName = "Assembled";
-            _mask.backSortingLayerID = SortingLayer.NameToID("Assembled");
-            _mask.frontSortingLayerID = SortingLayer.NameToID("Assembled");
+            _collider.enabled = false;
             
-            _isLocked = true;
-            _transform.position = position;
+            var sequence = DOTween.Sequence();
+            sequence.Append(_transform.DOMove(_defaultPosition, 1f).SetEase(Ease.InCirc));
+            sequence.AppendCallback(Lock);
+            sequence.Play();
         }
 
         public void SetPosition(Vector2 position)
@@ -66,8 +66,22 @@ namespace GamePlay.Puzzle.Assemble.Runtime
             _transform.position = position;
         }
 
+        public void Lock()
+        {
+            _collider.enabled = false;
+            _renderer.sortingLayerName = "Assembled";
+            _mask.backSortingLayerID = SortingLayer.NameToID("Assembled");
+            _mask.frontSortingLayerID = SortingLayer.NameToID("Assembled");
+
+            _isLocked = true;
+            _transform.position = _defaultPosition;
+        }
+        
+
         public void Unlock()
         {
+            _collider.enabled = true;
+
             _renderer.sortingLayerName = "Parts";
             _mask.backSortingLayerID = SortingLayer.NameToID("Parts");
             _mask.frontSortingLayerID = SortingLayer.NameToID("Parts");
@@ -79,7 +93,7 @@ namespace GamePlay.Puzzle.Assemble.Runtime
         {
             if (_isLocked == true)
                 return;
-            
+
             Clicked?.Invoke(this);
         }
     }

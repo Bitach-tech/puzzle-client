@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Common.Local.Services.Abstract.Callbacks;
 using UnityEngine;
 
@@ -27,6 +28,20 @@ namespace GamePlay.Puzzle.Assemble.Runtime.Targets
         { 
             Debug.Log($"On taken: {_available.Count}");
             _available.Remove(target);
+        }
+
+        public void OnTaken(int id)
+        {
+            foreach (var target in _available)
+            {
+                if (target.Id != id)
+                    continue;
+                
+                OnTaken(target);
+                return;
+            }
+            
+            Debug.LogError($"{id} not found");
         }
 
         public void OnReset()

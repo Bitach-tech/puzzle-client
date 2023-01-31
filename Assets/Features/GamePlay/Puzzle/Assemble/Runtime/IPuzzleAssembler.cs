@@ -4,7 +4,9 @@ namespace GamePlay.Puzzle.Assemble.Runtime
 {
     public interface IPuzzleAssembler
     {
-        void Begin(PuzzleImage image);
+        void AssemblePreview(PuzzleImage image);
+        void AssembleCurrent();
+        void Begin();
         void Cancel();
     }
 }

@@ -3,5 +3,8 @@
     public interface IPuzzleUiLoop
     {
         void Open();
+
+        void ShowAssembledScreen();
+        void HideAssembledScreen();
     }
 }

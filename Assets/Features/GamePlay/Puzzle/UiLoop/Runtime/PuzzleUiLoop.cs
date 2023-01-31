@@ -20,7 +20,6 @@ namespace GamePlay.Puzzle.UiLoop.Runtime
             _uiStateMachine = uiStateMachine;
             _constraints = constraints;
         }
-
         private UiConstraints _constraints;
         private IUiStateMachine _uiStateMachine;
 
@@ -34,6 +33,16 @@ namespace GamePlay.Puzzle.UiLoop.Runtime
         {
             _uiStateMachine.EnterAsSingle(this);
             _overlay.Open();
+        }
+
+        public void ShowAssembledScreen()
+        {
+            _overlay.ShowAssembledScreen();
+        }
+
+        public void HideAssembledScreen()
+        {
+            _overlay.HideAssembledScreen();
         }
 
         public void Recover()
