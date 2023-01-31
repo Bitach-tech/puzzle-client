@@ -1,4 +1,5 @@
-﻿using Common.Local.Services.Abstract.Callbacks;
+﻿using System;
+using Common.Local.Services.Abstract.Callbacks;
 using Global.Services.UiStateMachines.Runtime;
 using UnityEngine;
 using VContainer;
@@ -23,6 +24,11 @@ namespace GamePlay.Puzzle.Overlay.Runtime
 
         public UiConstraints Constraints => _constraints;
         public string Name => "ToolSelection";
+
+        private void Awake()
+        {
+            _body.SetActive(false);
+        }
 
         public void OnAwake()
         {

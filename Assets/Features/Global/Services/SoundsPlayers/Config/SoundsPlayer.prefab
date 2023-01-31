@@ -95,10 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buttonTouched: {fileID: 8300000, guid: 80710a74c18207f41afe2d69077ba294, type: 3}
   _buttonClicked: {fileID: 8300000, guid: 0e6d4d48fef8bd34f9a18cc6b7ed156c, type: 3}
-  _newQuestion: {fileID: 8300000, guid: 674163b28dec3ed42b485b0f1cbedf6f, type: 3}
-  _correctAnswer: {fileID: 8300000, guid: c49e66bbea6fcdf4788e2d8c843e825a, type: 3}
-  _wrongAnswer: {fileID: 8300000, guid: 0067a2de6e998bb4896d0d5e269cf877, type: 3}
-  _finalEnter: {fileID: 8300000, guid: de17d956004af0e48a63bec1f8c38e12, type: 3}
+  _winSound: {fileID: 8300000, guid: 11fa363dc9820ec4490c95bda28e9fbd, type: 3}
   _ambient: {fileID: 8300000, guid: d25aa7c22d3f8c249822e770549b599a, type: 3}
   _player: {fileID: 2906261100337011328}
 --- !u!114 &5906528290490887945
