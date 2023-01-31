@@ -1,8 +1,10 @@
-﻿using Features.GamePlay.Puzzle.Assemble.Runtime.Background;
-using Features.GamePlay.Puzzle.Assemble.Runtime.StartPositions;
+﻿using GamePlay.Puzzle.Assemble.Runtime.Background;
+using GamePlay.Puzzle.Assemble.Runtime.Parts;
+using GamePlay.Puzzle.Assemble.Runtime.StartPositions;
+using GamePlay.Puzzle.Assemble.Runtime.Targets;
 using UnityEngine;
 
-namespace Features.GamePlay.Puzzle.Assemble.Runtime
+namespace GamePlay.Puzzle.Assemble.Runtime
 {
     [DisallowMultipleComponent]
     public class PuzzleBootstrapper : MonoBehaviour

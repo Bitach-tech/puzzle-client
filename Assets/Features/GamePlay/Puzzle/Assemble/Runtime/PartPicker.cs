@@ -1,6 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
+using GamePlay.Puzzle.Assemble.Runtime.Parts;
 
-namespace Features.GamePlay.Puzzle.Assemble.Runtime
+namespace GamePlay.Puzzle.Assemble.Runtime
 {
     public class PartPicker
     {

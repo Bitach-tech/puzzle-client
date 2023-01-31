@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Features.GamePlay.Puzzle.Assemble.Runtime.StartPositions
+namespace GamePlay.Puzzle.Assemble.Runtime.StartPositions
 {
     [DisallowMultipleComponent]
     public class RandomStartPositions : MonoBehaviour, IRandomStartPositions

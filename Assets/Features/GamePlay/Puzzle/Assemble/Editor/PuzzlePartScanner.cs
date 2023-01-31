@@ -1,9 +1,9 @@
-﻿using Features.GamePlay.Puzzle.Assemble.Runtime;
+﻿using GamePlay.Puzzle.Assemble.Runtime;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
 
-namespace Features.GamePlay.Puzzle.Assemble.Editor
+namespace GamePlay.Puzzle.Assemble.Editor
 {
     [DisallowMultipleComponent]
     public class PuzzlePartScanner : MonoBehaviour
@@ -81,6 +81,10 @@ namespace Features.GamePlay.Puzzle.Assemble.Editor
                 mask.sprite = sprite.sprite;
                 sprite.sortingOrder = i + 1;
                 mask.frontSortingOrder = i + 1;
+                var position = target.transform.position;
+                
+                position.z = -(i + 1);
+                target.transform.position = position;
                 
                 target.SetId(i);
 

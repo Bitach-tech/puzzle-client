@@ -1,8 +1,8 @@
 ﻿using System;
 using Common.Local.Services.Abstract.Callbacks;
-using Features.GamePlay.Puzzle.Assemble.Runtime;
 using GamePlay.Menu.Runtime;
-using GamePlay.Puzzle.Loop.Runtime;
+using GamePlay.Puzzle.Assemble.Runtime;
+using GamePlay.Puzzle.UiLoop.Runtime;
 using GamePlay.Services.LevelCameras.Runtime;
 using GamePlay.Services.LevelLoops.Events;
 using GamePlay.Services.LevelLoops.Logs;

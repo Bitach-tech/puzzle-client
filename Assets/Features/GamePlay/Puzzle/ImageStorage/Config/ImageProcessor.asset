@@ -21,5 +21,19 @@ MonoBehaviour:
   _backgroundSize: {x: 1600, y: 960}
   _images:
   - {fileID: 2800000, guid: 74966d5531571d340bd66298ff3c555d, type: 3}
+  - {fileID: 2800000, guid: afd5b646148dac24f96dce57b3d679c4, type: 3}
+  - {fileID: 2800000, guid: aa1cf2858a943ef4f8aea86a0b92bdc7, type: 3}
+  - {fileID: 2800000, guid: 9954c27257db72d4c92f8e2b323a89de, type: 3}
+  - {fileID: 2800000, guid: 11b60166228c1ba47b5584e179831d04, type: 3}
+  - {fileID: 2800000, guid: 1223e481d44475543bc2463469cc4fa5, type: 3}
+  - {fileID: 2800000, guid: 00e760b03c218a2499de671c88c92410, type: 3}
+  - {fileID: 2800000, guid: 9c915dca6ba05aa4f9cdc14140e16624, type: 3}
   _assets:
   - {fileID: 11400000, guid: 2a34e72e9b29daa4c8745f2457615487, type: 2}
+  - {fileID: 11400000, guid: caf8b3e3a57f38843b8c9e543e7dcf53, type: 2}
+  - {fileID: 11400000, guid: d2790cd41950f9a46bca98061e4672d4, type: 2}
+  - {fileID: 11400000, guid: d1d2f87ef4a38664280e86d0f8cd359a, type: 2}
+  - {fileID: 11400000, guid: bfedeb63ec3a42c45ac67e3d7c71aadc, type: 2}
+  - {fileID: 11400000, guid: c9be3e7d91e150b48b091e7ad59c87b7, type: 2}
+  - {fileID: 11400000, guid: 74854a4d740092a419c11caabc5b75ae, type: 2}
+  - {fileID: 11400000, guid: 6d65532656ce143488db20148d3576ca, type: 2}

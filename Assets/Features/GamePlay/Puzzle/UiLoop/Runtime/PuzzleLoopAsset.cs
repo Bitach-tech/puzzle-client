@@ -7,7 +7,7 @@ using Global.Services.UiStateMachines.Runtime;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace GamePlay.Puzzle.Loop.Runtime
+namespace GamePlay.Puzzle.UiLoop.Runtime
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = GamePlayAssetsPaths.ServicePrefix + "PaintLoop",

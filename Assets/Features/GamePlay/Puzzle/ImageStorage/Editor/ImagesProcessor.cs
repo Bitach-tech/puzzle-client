@@ -8,7 +8,7 @@ using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
 
-namespace Features.GamePlay.Puzzle.ImageStorage.Editor
+namespace GamePlay.Puzzle.ImageStorage.Editor
 {
     [CreateAssetMenu(fileName = "ImageProcessor",
         menuName = GamePlayAssetsPaths.ImageStorage + "Processor")]
@@ -39,6 +39,9 @@ namespace Features.GamePlay.Puzzle.ImageStorage.Editor
         {
             var assetPath = AssetDatabase.GetAssetPath(texture);
             var textureImporter = AssetImporter.GetAtPath(assetPath) as TextureImporter;
+
+            if (textureImporter == null)
+                throw new NullReferenceException();
             
             var fileName = Path.GetFileNameWithoutExtension(assetPath);
 
@@ -78,30 +81,57 @@ namespace Features.GamePlay.Puzzle.ImageStorage.Editor
                 position = _backgroundPosition,
                 size = _backgroundSize
             };
-
             
-            rects.Add(background);
             rects.Add(preview);
-
-            var result = rects.ToArray();
+            rects.Add(background);
 
             var rectNum = 0;
 
-            textureImporter.spritesheet = result.Select(rect => new SpriteMetaData
+            var spriteSheet = new SpriteMetaData[rects.Count];
+
+            for (var i = 0; i < spriteSheet.Length; i++)
             {
-                pivot = Vector2.down, 
-                alignment = (int) SpriteAlignment.Center,
-                rect = rect, 
-                name = fileName + "_" + rectNum++
-            }).ToArray();
+                var data = new SpriteMetaData
+                {
+                    pivot = Vector2.down,
+                    alignment = (int)SpriteAlignment.Center,
+                    rect = rects[i],
+                    name = fileName + "_" + rectNum++
+                };
+
+                spriteSheet[i] = data;
+            }
+
+            textureImporter.spritesheet = spriteSheet;
         
             AssetDatabase.ForceReserializeAssets(new List<string> { assetPath });
             AssetDatabase.ImportAsset(assetPath, ImportAssetOptions.ForceUpdate);
 
-            var sprites = AssetDatabase.LoadAllAssetsAtPath(assetPath).OfType<Sprite>().ToArray();
+            int GetOrder(Sprite sprite)
+            {
+                var target = sprite.name.Replace($"{fileName}_", "");
+                Debug.Log($"{fileName} {sprite.name} {target}");
+                var order = int.Parse(target);
+                
+                return order;
+            }
             
-            asset.SetPreview(sprites[^1]);
-            asset.SetBackground(sprites[^2]);
+            var sprites = AssetDatabase.LoadAllAssetsAtPath(assetPath)
+                .OfType<Sprite>()
+                .OrderBy(GetOrder)
+                .ToArray();
+
+            var backgroundIndex = sprites.Length - 1;
+            var previewIndex = sprites.Length - 2;
+            
+            Debug.Log($"Indexes: {previewIndex} {backgroundIndex}");
+            Debug.Log($"Names: {sprites[previewIndex].name} {sprites[backgroundIndex].name}");
+
+            for (var i = 0; i < sprites.Length; i++)
+                Debug.Log($"[{i}]: {sprites[i].name}");
+            
+            asset.SetPreview(sprites[previewIndex]);
+            asset.SetBackground(sprites[backgroundIndex]);
             
             Array.Resize(ref sprites, sprites.Length - 2);
             asset.SetImages(sprites);

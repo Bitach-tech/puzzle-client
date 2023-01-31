@@ -2,7 +2,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace Features.GamePlay.Puzzle.Assemble.Runtime
+namespace GamePlay.Puzzle.Assemble.Runtime
 {
     [DisallowMultipleComponent]
     public class PuzzlePart : MonoBehaviour
@@ -55,7 +55,7 @@ namespace Features.GamePlay.Puzzle.Assemble.Runtime
         {
             _renderer.sortingLayerName = "Assembled";
             _mask.backSortingLayerID = SortingLayer.NameToID("Assembled");
-            _mask.frontSortingOrder = SortingLayer.NameToID("Assembled");
+            _mask.frontSortingLayerID = SortingLayer.NameToID("Assembled");
             
             _isLocked = true;
             _transform.position = position;
@@ -70,7 +70,7 @@ namespace Features.GamePlay.Puzzle.Assemble.Runtime
         {
             _renderer.sortingLayerName = "Parts";
             _mask.backSortingLayerID = SortingLayer.NameToID("Parts");
-            _mask.frontSortingOrder = SortingLayer.NameToID("Parts");
+            _mask.frontSortingLayerID = SortingLayer.NameToID("Parts");
 
             _isLocked = false;
         }

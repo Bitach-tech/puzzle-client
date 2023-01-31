@@ -1,16 +1,19 @@
 ﻿using Common.DiContainer.Abstract;
 using Common.Local.Services.Abstract;
 using Cysharp.Threading.Tasks;
-using Features.GamePlay.Puzzle.Assemble.Runtime.Background;
-using Features.GamePlay.Puzzle.Assemble.Runtime.StartPositions;
 using GamePlay.Common.Paths;
+using GamePlay.Puzzle.Assemble.Runtime.Background;
+using GamePlay.Puzzle.Assemble.Runtime.Handler;
+using GamePlay.Puzzle.Assemble.Runtime.Parts;
+using GamePlay.Puzzle.Assemble.Runtime.StartPositions;
+using GamePlay.Puzzle.Assemble.Runtime.Targets;
 using Global.Services.ScenesFlow.Handling.Data;
 using Global.Services.ScenesFlow.Runtime.Abstract;
 using NaughtyAttributes;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Features.GamePlay.Puzzle.Assemble.Runtime
+namespace GamePlay.Puzzle.Assemble.Runtime
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = GamePlayAssetsPaths.ServicePrefix + "PuzzleAssemble",

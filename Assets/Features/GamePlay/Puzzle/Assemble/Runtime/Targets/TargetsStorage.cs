@@ -2,7 +2,7 @@
 using Common.Local.Services.Abstract.Callbacks;
 using UnityEngine;
 
-namespace Features.GamePlay.Puzzle.Assemble.Runtime
+namespace GamePlay.Puzzle.Assemble.Runtime.Targets
 {
     [DisallowMultipleComponent]
     public class TargetsStorage : MonoBehaviour, ITargetsStorage, ILocalAwakeListener

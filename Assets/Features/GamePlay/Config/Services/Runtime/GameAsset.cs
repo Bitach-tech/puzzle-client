@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using Common.Local.ComposedSceneConfig;
 using Common.Local.Services.Abstract;
-using Features.GamePlay.Puzzle.Assemble.Runtime;
 using GamePlay.Common.Paths;
 using GamePlay.Menu.Runtime;
+using GamePlay.Puzzle.Assemble.Runtime;
 using GamePlay.Puzzle.ImageStorage.Runtime;
-using GamePlay.Puzzle.Loop.Runtime;
 using GamePlay.Puzzle.Overlay.Runtime;
+using GamePlay.Puzzle.UiLoop.Runtime;
 using GamePlay.Services.Background.Runtime;
 using GamePlay.Services.Common.Scope;
 using GamePlay.Services.LevelCameras.Runtime;

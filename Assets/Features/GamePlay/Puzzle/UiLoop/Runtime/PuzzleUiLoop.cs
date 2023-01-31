@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using GamePlay.Puzzle.ImageStorage.Runtime;
-using GamePlay.Puzzle.Overlay.Runtime;
+﻿using GamePlay.Puzzle.Overlay.Runtime;
 using Global.Services.ServiceSDK.Advertisment.Abstract;
 using Global.Services.UiStateMachines.Runtime;
 using UnityEngine;
 using VContainer;
 
-namespace GamePlay.Puzzle.Loop.Runtime
+namespace GamePlay.Puzzle.UiLoop.Runtime
 {
     [DisallowMultipleComponent]
     public class PuzzleUiLoop : MonoBehaviour, IUiState, IPuzzleUiLoop

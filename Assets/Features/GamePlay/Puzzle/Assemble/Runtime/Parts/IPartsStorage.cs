@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Features.GamePlay.Puzzle.Assemble.Runtime
+namespace GamePlay.Puzzle.Assemble.Runtime.Parts
 {
     public interface IPartsStorage
     {

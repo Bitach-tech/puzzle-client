@@ -2,7 +2,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Features.GamePlay.Puzzle.Assemble.Runtime
+namespace GamePlay.Puzzle.Assemble.Runtime
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = GamePlayAssetsPaths.ConfigPrefix + "PickHandler",

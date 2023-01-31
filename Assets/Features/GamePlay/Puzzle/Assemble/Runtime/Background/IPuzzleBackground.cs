@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Features.GamePlay.Puzzle.Assemble.Runtime.Background
+namespace GamePlay.Puzzle.Assemble.Runtime.Background
 {
     public interface IPuzzleBackground
     {

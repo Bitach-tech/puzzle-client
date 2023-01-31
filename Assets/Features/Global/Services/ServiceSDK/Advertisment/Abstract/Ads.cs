@@ -42,7 +42,7 @@ namespace Global.Services.ServiceSDK.Advertisment.Abstract
 
         private void OnRewardShowed(string data)
         {
-            _rewardedCompletion.TrySetResult(RewardAdResult.Applied);
+            //_rewardedCompletion.TrySetResult(RewardAdResult.Applied);
         }
 
         private void OnRewardClosed(int data)

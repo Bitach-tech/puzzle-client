@@ -1,4 +1,4 @@
-﻿namespace Features.GamePlay.Puzzle.Assemble.Runtime
+﻿namespace GamePlay.Puzzle.Assemble.Runtime.Handler
 {
     public readonly struct SearchedTarget
     {

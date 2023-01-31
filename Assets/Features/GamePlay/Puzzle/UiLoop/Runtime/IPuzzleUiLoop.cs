@@ -1,6 +1,4 @@
-﻿using GamePlay.Puzzle.ImageStorage.Runtime;
-
-namespace GamePlay.Puzzle.Loop.Runtime
+﻿namespace GamePlay.Puzzle.UiLoop.Runtime
 {
     public interface IPuzzleUiLoop
     {

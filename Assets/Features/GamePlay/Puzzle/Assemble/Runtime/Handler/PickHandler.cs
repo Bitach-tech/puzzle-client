@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using GamePlay.Puzzle.Assemble.Runtime.Parts;
+using GamePlay.Puzzle.Assemble.Runtime.Targets;
 using Global.Services.InputViews.Runtime;
 using Global.Services.Updaters.Runtime.Abstract;
 using UnityEngine;
 
-namespace Features.GamePlay.Puzzle.Assemble.Runtime
+namespace GamePlay.Puzzle.Assemble.Runtime.Handler
 {
     public class PickHandler : IUpdatable
     {
@@ -78,20 +80,15 @@ namespace Features.GamePlay.Puzzle.Assemble.Runtime
 
             if (nearest.Distance > _config.DropDistance)
             {
-                Debug.Log("Too far");
                 _completion.TrySetResult(null);
                 return;
             }
             
             if (nearest.Part.Id != _current.Id)
             {
-                Debug.Log("Wrong id");
-
                 _completion.TrySetResult(null);
                 return;
             }
-
-            Debug.Log("Correct");
 
             _completion.TrySetResult(nearest.Part);
         }

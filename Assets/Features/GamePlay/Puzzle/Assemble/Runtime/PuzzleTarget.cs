@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Features.GamePlay.Puzzle.Assemble.Runtime
+namespace GamePlay.Puzzle.Assemble.Runtime
 {
     [DisallowMultipleComponent]
     public class PuzzleTarget : MonoBehaviour

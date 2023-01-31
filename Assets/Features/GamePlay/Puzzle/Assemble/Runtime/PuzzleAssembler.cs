@@ -1,12 +1,15 @@
 ﻿using Common.Local.Services.Abstract.Callbacks;
 using Cysharp.Threading.Tasks;
-using Features.GamePlay.Puzzle.Assemble.Runtime.Background;
-using Features.GamePlay.Puzzle.Assemble.Runtime.StartPositions;
+using GamePlay.Puzzle.Assemble.Runtime.Background;
+using GamePlay.Puzzle.Assemble.Runtime.Handler;
+using GamePlay.Puzzle.Assemble.Runtime.Parts;
+using GamePlay.Puzzle.Assemble.Runtime.StartPositions;
+using GamePlay.Puzzle.Assemble.Runtime.Targets;
 using GamePlay.Puzzle.ImageStorage.Runtime;
 using UnityEngine;
 using VContainer;
 
-namespace Features.GamePlay.Puzzle.Assemble.Runtime
+namespace GamePlay.Puzzle.Assemble.Runtime
 {
     [DisallowMultipleComponent]
     public class PuzzleAssembler : MonoBehaviour, IPuzzleAssembler, ILocalAwakeListener
