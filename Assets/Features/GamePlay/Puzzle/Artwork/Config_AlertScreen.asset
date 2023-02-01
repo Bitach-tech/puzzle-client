@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cf9cd6c2834460b905462ce84c73d49, type: 3}
   m_Name: Config_AlertScreen
   m_EditorClassIdentifier: 
-  _ownerName: ' MOB Games'
+  _ownerName: ROBLOX
