@@ -2,9 +2,9 @@
 using GamePlay.Config.Services.Runtime;
 using Global.Bootstrappers;
 using Global.GameLoops.Abstract;
-using Global.Services.Common.Config.Abstract;
-using Global.Services.Common.Scope;
-using Global.Services.ScenesFlow.Runtime.Abstract;
+using Global.Scenes.ScenesFlow.Runtime.Abstract;
+using Global.Setup.Abstract;
+using Global.Setup.Scope;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -61,17 +61,20 @@ namespace GamePlay.Common.GlobalBootstrapMocks
             var callbacks = new GlobalCallbacks();
             var dependencyRegister = new ContainerBuilder();
 
-            binder.AddToModules(_scope);
+            var gameLoop = _gameLoop.Create(dependencyRegister, binder);
 
-            var services = _services.GetAssets();
-            var servicesTasks = new UniTask[services.Length];
+            var factories = _services.GetFactories();
+            var asyncFactories = _services.GetAsyncFactories();
 
-            _gameLoop.Create(dependencyRegister, binder);
+            foreach (var factory in factories)
+                factory.Create(dependencyRegister, binder, callbacks);
 
-            for (var i = 0; i < servicesTasks.Length; i++)
-                servicesTasks[i] = services[i].Create(dependencyRegister, binder, sceneLoader, callbacks);
+            var asyncFactoriesTasks = new UniTask[asyncFactories.Length];
 
-            await UniTask.WhenAll(servicesTasks);
+            for (var i = 0; i < asyncFactories.Length; i++)
+                asyncFactoriesTasks[i] = asyncFactories[i].Create(dependencyRegister, binder, sceneLoader, callbacks);
+
+            await UniTask.WhenAll(asyncFactoriesTasks);
 
             using (LifetimeScope.Enqueue(OnConfiguration))
             {

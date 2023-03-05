@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Common.UI.UniversalPlates.Debug
 {
     [DisallowMultipleComponent]
-    [RequireComponent(typeof(UniversalPlateColorSetter))]
+    [RequireComponent(typeof(PlateColorSetter))]
     public class UniversalPlateColorTest : MonoBehaviour
     {
     }

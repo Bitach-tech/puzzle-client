@@ -116,11 +116,6 @@ namespace VContainer.Unity
             {
                 Parent = GetRuntimeParent();
 
-                if (Parent == null)
-                    Debug.Log("PARENT IS NULL");
-                else
-                    Debug.Log($"PARENT NAME: {Parent.name}");
-
                 if (autoRun)
                 {
                     Build();
@@ -164,72 +159,45 @@ namespace VContainer.Unity
 
         public void Build()
         {
-            Debug.Log("Build 0");
             if (Parent == null)
                 Parent = GetRuntimeParent();
 
-            Debug.Log("Build 1");
-
             if (Parent != null)
             {
-                Debug.Log(Parent.name);
-                Debug.Log("Build 2");
-
                 if (VContainerSettings.Instance != null && Parent == VContainerSettings.Instance.RootLifetimeScope)
                 {
                     if (Parent.Container == null)
                         Parent.Build();
                 }
 
-                Debug.Log("Build 3");
-
-
                 // ReSharper disable once PossibleNullReferenceException
                 Container = Parent.Container.CreateScope(builder =>
                 {
-                    Debug.Log("Build 4");
-
                     builder.ApplicationOrigin = this;
                     builder.Diagnostics = VContainerSettings.DiagnosticsEnabled
                         ? DiagnositcsContext.GetCollector(name)
                         : null;
-                    Debug.Log("Build 5");
 
                     InstallTo(builder);
-                    Debug.Log("Build 6");
                 });
-
-                Debug.Log("Build 7");
             }
             else
             {
-                Debug.Log("Build 8");
-
                 var builder = new ContainerBuilder
                 {
                     ApplicationOrigin = this,
                     Diagnostics = VContainerSettings.DiagnosticsEnabled ? DiagnositcsContext.GetCollector(name) : null,
                 };
 
-                Debug.Log("Build 9");
-
                 InstallTo(builder);
 
-                Debug.Log("Build 10");
-
                 Container = builder.Build();
-                Debug.Log("Build 11");
             }
-
-            Debug.Log("Build 12");
 
             extraInstallers.Clear();
 
-            Debug.Log("Build 13");
-
             AutoInjectAll();
             AwakeWaitingChildren(this);
-            Debug.Log("Build 14");
         }
 
         public TScope CreateChild<TScope>(IInstaller installer = null)
@@ -311,29 +279,19 @@ namespace VContainer.Unity
 
         LifetimeScope GetRuntimeParent()
         {
-            Debug.Log("Get parent 0");
             if (IsRoot) return null;
-
-            Debug.Log("Get parent 1");
 
             if (parentReference.Object != null)
             {
-                Debug.Log("Get parent. Return parent reference");
-
                 return parentReference.Object;
             }
 
             // Find in scene via type
             if (parentReference.Type != null && parentReference.Type != GetType())
             {
-                Debug.Log(
-                    $"Get parent. find in scene: refenrece: {parentReference.Type.Name} current: {GetType().Name}");
-
                 var found = Find(parentReference.Type);
                 if (found != null && found.Container != null)
                 {
-                    Debug.Log("Get parent. return found");
-
                     return found;
                 }
 
@@ -347,22 +305,15 @@ namespace VContainer.Unity
 
             if (nextParent != null)
             {
-                Debug.Log($"Get parent: next: {nextParent.name}");
-
                 return nextParent;
             }
 
             // Find root from settings
             if (VContainerSettings.Instance != null)
             {
-                Debug.Log($"Get parent: get from settings");
-
                 return VContainerSettings.Instance.RootLifetimeScope;
             }
             
-            Debug.Log($"Get parent: return null");
-
-
             return null;
         }
 

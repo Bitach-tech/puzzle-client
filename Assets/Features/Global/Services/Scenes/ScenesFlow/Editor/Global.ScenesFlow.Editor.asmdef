@@ -1,0 +1,19 @@
+{
+    "name": "Global.ScenesFlow.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d945054fb520ae0408f2ec087ffa5163",
+        "GUID:a16f4342296af5641abd0c59ab23d2f8"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

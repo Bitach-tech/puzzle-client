@@ -1,0 +1,19 @@
+{
+    "name": "Global.CurrentCamera.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d945054fb520ae0408f2ec087ffa5163",
+        "GUID:a95965a9dc2017f4c8fa7721b49a3c89"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

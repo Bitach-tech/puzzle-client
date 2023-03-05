@@ -1,6 +1,6 @@
 ﻿using VContainer.Unity;
 
-namespace GamePlay.Services.Common.Scope
+namespace GamePlay.Common.Scope
 {
     public class LevelScope : LifetimeScope
     {

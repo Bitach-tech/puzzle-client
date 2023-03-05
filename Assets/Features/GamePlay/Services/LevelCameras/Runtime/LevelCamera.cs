@@ -1,10 +1,10 @@
 ﻿using Common.Local.Services.Abstract.Callbacks;
-using GamePlay.Services.LevelCameras.Logs;
-using Global.Services.CurrentCameras.Runtime;
+using GamePlay.LevelCameras.Logs;
+using Global.Cameras.CurrentCameras.Runtime;
 using UnityEngine;
 using VContainer;
 
-namespace GamePlay.Services.LevelCameras.Runtime
+namespace GamePlay.LevelCameras.Runtime
 {
     public class LevelCamera :
         MonoBehaviour,

@@ -1,16 +1,16 @@
-﻿using System.Collections.Generic;
-using Common.Local.ComposedSceneConfig;
+﻿using Common.Local.ComposedSceneConfig;
 using Common.Local.Services.Abstract;
+using GamePlay.Background.Runtime;
 using GamePlay.Common.Paths;
+using GamePlay.Common.Scope;
+using GamePlay.Level.Assemble.Runtime;
+using GamePlay.Level.ImageStorage.Runtime;
+using GamePlay.Level.UI.Overlay.Runtime;
+using GamePlay.Level.UI.Root.Runtime;
+using GamePlay.Level.UI.Win.Runtime;
+using GamePlay.LevelCameras.Runtime;
+using GamePlay.Loop.Runtime;
 using GamePlay.Menu.Runtime;
-using GamePlay.Puzzle.Assemble.Runtime;
-using GamePlay.Puzzle.ImageStorage.Runtime;
-using GamePlay.Puzzle.Overlay.Runtime;
-using GamePlay.Puzzle.UiLoop.Runtime;
-using GamePlay.Services.Background.Runtime;
-using GamePlay.Services.Common.Scope;
-using GamePlay.Services.LevelCameras.Runtime;
-using GamePlay.Services.LevelLoops.Runtime;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using VContainer.Unity;
@@ -25,28 +25,39 @@ namespace GamePlay.Config.Services.Runtime
         [SerializeField] private LevelLoopAsset _levelLoop;
         [SerializeField] private MenuUIAsset _menuUi;
         [SerializeField] private GameBackgroundAsset _background;
-        [SerializeField] private LevelOverlayAsset _levelOverlay;
-        [SerializeField] private ImageStorageAsset _imageStorage;
-        [SerializeField] private PuzzleLoopAsset _puzzleLoop;
         [SerializeField] private PuzzleAssemblerAsset _assembler;
+        [SerializeField] private ImageStorageAsset _imageStorage;
+        [SerializeField] private LevelOverlayAsset _levelOverlay;
+        [SerializeField] private LevelUiRootAsset _uiRootAsset;
+        [SerializeField] private WinScreenAsset _winScreenAsset;
 
         [SerializeField] private LevelScope _scopePrefab;
 
-        protected override LocalServiceAsset[] AssignServices()
+        protected override ILocalServiceFactory[] GetFactories()
         {
-            var list = new List<LocalServiceAsset>
+            var services = new ILocalServiceFactory[]
             {
                 _levelCamera,
                 _levelLoop,
-                _menuUi,
-                _background,
-                _levelOverlay,
                 _imageStorage,
-                _puzzleLoop,
-                _assembler
+                _uiRootAsset
             };
 
-            return list.ToArray();
+            return services;
+        }
+
+        protected override ILocalServiceAsyncFactory[] GetAsyncFactories()
+        {
+            var services = new ILocalServiceAsyncFactory[]
+            {
+                _menuUi,
+                _background,
+                _assembler,
+                _levelOverlay,
+                _winScreenAsset
+            };
+
+            return services;
         }
 
         protected override LifetimeScope AssignScope()

@@ -1,0 +1,28 @@
+{
+  "name": "Global.LoadingScreens.Runtime",
+  "rootNamespace": "",
+  "references": [
+    "GUID:401398c75a71e5444a495125c9dd1a21",
+    "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
+    "GUID:cdfd058b393524bddbb7e850e0d53c8e",
+    "GUID:fb9b00a9a42c4c1459774b1ef88fcd74",
+    "GUID:f51ebe6a0ceec4240a699833d6309b23",
+    "GUID:3cc29bc86e0cb574a96f23887e1804d2",
+    "GUID:304598a766c781247877f81511375f98",
+    "GUID:e07e6ccd9241474dbca4e70862df2bc2",
+    "GUID:9e24947de15b9834991c9d8411ea37cf",
+    "GUID:84651a3751eca9349aac36a66bba901b",
+    "GUID:776d03a35f1b52c4a9aed9f56d7b4229",
+    "GUID:5a79c06a57c2477fb68e3db0ed8f7688",
+    "GUID:9940856cda82428182b997f944f27c00"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

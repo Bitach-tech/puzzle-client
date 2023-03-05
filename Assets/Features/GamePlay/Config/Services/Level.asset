@@ -17,8 +17,9 @@ MonoBehaviour:
   _levelLoop: {fileID: 11400000, guid: d062479df73f1744e9fcf2226501a5b7, type: 2}
   _menuUi: {fileID: 11400000, guid: 07fd34c9d670f4d48a882ff1abf30c42, type: 2}
   _background: {fileID: 11400000, guid: a85633435c8e17c469e77b530f7882cd, type: 2}
-  _levelOverlay: {fileID: 11400000, guid: e0d952dd43cef654e80f6159664e4ed3, type: 2}
-  _imageStorage: {fileID: 11400000, guid: 576969333a3742240a00a29b2c3ef3b3, type: 2}
-  _puzzleLoop: {fileID: 11400000, guid: ddd7fde7132ec8c4582978df25652f4d, type: 2}
   _assembler: {fileID: 11400000, guid: e9d646ebf44c8ae4aa54d54f17794ee8, type: 2}
+  _imageStorage: {fileID: 11400000, guid: 576969333a3742240a00a29b2c3ef3b3, type: 2}
+  _levelOverlay: {fileID: 11400000, guid: e0d952dd43cef654e80f6159664e4ed3, type: 2}
+  _uiRootAsset: {fileID: 11400000, guid: ddd7fde7132ec8c4582978df25652f4d, type: 2}
+  _winScreenAsset: {fileID: 11400000, guid: d7eca8887c5b75144b266f35ec906c5e, type: 2}
   _scopePrefab: {fileID: 6256164544057903142, guid: 739bd40898e14fe4ebe3aa07b287a0fb, type: 3}

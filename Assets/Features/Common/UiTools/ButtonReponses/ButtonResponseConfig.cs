@@ -1,10 +1,10 @@
-﻿using GamePlay.Common.Paths;
+﻿using Common.UiTools.Common;
 using UnityEngine;
 
 namespace Common.UiTools.ButtonReponses
 {
-    [CreateAssetMenu(fileName = GamePlayAssetsPaths.ConfigPrefix + "ButtonResponse",
-        menuName = GamePlayAssetsPaths.Config + "ButtonResponse")]
+    [CreateAssetMenu(fileName = UiToolsRoutes.ButtonResponseName,
+        menuName = UiToolsRoutes.ButtonResponsePath)]
     public class ButtonResponseConfig : ScriptableObject
     {
         [SerializeField] private float _overSize = 1.1f;

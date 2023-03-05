@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Common.Local.Services.Abstract.Callbacks;
-using Global.Services.ScenesFlow.Handling.Result;
+using Global.Scenes.ScenesFlow.Handling.Result;
 using VContainer.Unity;
 
 namespace Common.Local.ComposedSceneConfig

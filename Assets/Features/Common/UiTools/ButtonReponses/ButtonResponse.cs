@@ -12,6 +12,11 @@ namespace Common.UiTools.ButtonReponses
 
         private bool _isLocked;
 
+        private void OnEnable()
+        {
+            _target.localScale = Vector3.one;
+        }
+
         public void OnPointerEnter(PointerEventData eventData)
         {
             var sequence = DOTween.Sequence();

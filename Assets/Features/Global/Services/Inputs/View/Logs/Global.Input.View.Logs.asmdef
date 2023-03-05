@@ -1,0 +1,20 @@
+{
+  "name": "Global.Input.View.Logs",
+  "rootNamespace": "",
+  "references": [
+    "GUID:94e5ca42c58876942a8ffdd1c63b952f",
+    "GUID:fe4adae493555af4788e53948d7966ca",
+    "GUID:fb9b00a9a42c4c1459774b1ef88fcd74",
+    "GUID:9dbe345fbe8e47cb8a0d24c890f0feff",
+    "GUID:9a30e5b105be423994f0ee27d935f22f"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

@@ -2,6 +2,7 @@
 using Common.DiContainer.Abstract;
 using UnityEngine;
 using VContainer;
+using VContainer.Internal;
 using VContainer.Unity;
 
 namespace Common.DiContainer.Runtime
@@ -38,6 +39,15 @@ namespace Common.DiContainer.Runtime
         public IRegistration Register<T>()
         {
             var builder = new RegistrationBuilder(typeof(T), Lifetime.Singleton);
+            var registration = new Registration(builder, typeof(T));
+            _registrations.Add(registration);
+
+            return registration;
+        }
+
+        public IRegistration RegisterInstance<T>(T instance)
+        {
+            var builder = new InstanceRegistrationBuilder(instance).As(typeof(T));
             var registration = new Registration(builder, typeof(T));
             _registrations.Add(registration);
 

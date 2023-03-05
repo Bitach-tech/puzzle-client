@@ -1,4 +1,4 @@
-﻿using Common.UI.UniversalPlates.Runtime.Abstract;
+﻿using Common.UI.UniversalPlates.Runtime;
 using UnityEditor;
 using UnityEngine;
 
@@ -17,11 +17,11 @@ namespace Common.UI.UniversalPlates.Editor
             if (Application.isPlaying == true)
                 return;
 
-            var properties = Object.FindObjectsOfType<UniversalProperty>();
+            var properties = Object.FindObjectsOfType<UniversalPlate>();
 
             foreach (var property in properties)
             {
-                property.UpdateProperty();
+                property.UpdateProperties();
                 EditorUtility.SetDirty(property.gameObject);
                 Undo.RecordObject(property.gameObject, "Property updated");
             }

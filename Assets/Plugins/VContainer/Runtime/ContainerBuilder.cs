@@ -106,18 +106,13 @@ namespace VContainer
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public virtual IObjectResolver Build()
         {
-            Debug.Log("Container build 0");
             var registry = BuildRegistry();
-            Debug.Log("Container build 13");
 
             var container = new Container(registry, ApplicationOrigin);
-            Debug.Log("Container build 14");
 
             container.Diagnostics = Diagnostics;
-            Debug.Log("Container build 15");
 
             EmitCallbacks(container);
-            Debug.Log("Container build 20");
 
             return container;
         }
@@ -125,8 +120,6 @@ namespace VContainer
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         protected Registry BuildRegistry()
         {
-            Debug.Log("Container build 1");
-
             var registrations = new Registration[registrationBuilders.Count + 1];
 
 #if VCONTAINER_PARALLEL_CONTAINER_BUILD
@@ -143,12 +136,8 @@ namespace VContainer
             });
 #else
             
-            Debug.Log("Container build 2");
-
             for (var i = 0; i < registrationBuilders.Count; i++)
             {
-                Debug.Log("Container build 3");
-
                 var registrationBuilder = registrationBuilders[i];
                 var registration = registrationBuilder.Build();
                 Diagnostics?.TraceBuild(registrationBuilder, registration);
@@ -156,21 +145,15 @@ namespace VContainer
             }
 #endif
             
-            Debug.Log("Container build 4");
-
             registrations[registrations.Length - 1] = new Registration(
                 typeof(IObjectResolver),
                 Lifetime.Transient,
                 null,
                 ContainerInstanceProvider.Default);
 
-            Debug.Log("Container build 5");
-
             var registry = Registry.Build(registrations);
-            Debug.Log("Container build 11");
 
             TypeAnalyzer.CheckCircularDependency(registrations, registry);
-            Debug.Log("Container build 12");
 
             return registry;
         }
@@ -178,21 +161,13 @@ namespace VContainer
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         protected void EmitCallbacks(IObjectResolver container)
         {
-            Debug.Log("Container build 16");
             if (buildCallbacks == null) 
                 return;
-            Debug.Log("Container build 17");
-
 
             foreach (var callback in buildCallbacks)
             {
-                Debug.Log($"Container build 18: {callback.Target.GetType().Name} {callback.Method.Name}");
-
                 callback.Invoke(container);
             }
-
-            Debug.Log("Container build 19");
-
             
             Diagnostics?.NotifyContainerBuilt(container);
         }

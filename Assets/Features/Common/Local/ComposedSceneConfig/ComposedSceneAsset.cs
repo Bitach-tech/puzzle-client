@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Common.Local.Services.Abstract;
 using Cysharp.Threading.Tasks;
-using Global.Services.ScenesFlow.Handling.Data;
-using Global.Services.ScenesFlow.Runtime.Abstract;
+using Global.Scenes.ScenesFlow.Handling.Data;
+using Global.Scenes.ScenesFlow.Runtime.Abstract;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -17,10 +16,11 @@ namespace Common.Local.ComposedSceneConfig
 
         public async UniTask<ComposedSceneLoadResult> Load(LifetimeScope parent, ISceneLoader loader)
         {
-            var services = AssignServices();
+            var factories = GetFactories();
+            var asyncFactories = GetAsyncFactories();
 
             var sceneLoader = new ComposedSceneLoader(loader);
-            var servicesTasks = new List<UniTask>();
+            var asyncFactoriesTasks = new List<UniTask>();
 
             var loadServicesScene = await sceneLoader.Load(new EmptySceneLoadData(_config.ServicesScene));
             var servicesScene = loadServicesScene.Scene;
@@ -30,13 +30,16 @@ namespace Common.Local.ComposedSceneConfig
             var selfCallbacks = new LocalCallbacks();
             var builder = new ContainerBuilder();
 
-            foreach (var service in services)
+            foreach (var factory in factories)
+                factory.Create(builder, serviceBinder, selfCallbacks);
+
+            foreach (var service in asyncFactories)
             {
                 var task = service.Create(builder, serviceBinder, sceneLoader, selfCallbacks);
-                servicesTasks.Add(task);
+                asyncFactoriesTasks.Add(task);
             }
 
-            await UniTask.WhenAll(servicesTasks);
+            await UniTask.WhenAll(asyncFactoriesTasks);
 
             var scopePrefab = AssignScope();
             var scope = Instantiate(scopePrefab);
@@ -76,10 +79,8 @@ namespace Common.Local.ComposedSceneConfig
                 selfCallbacks.InvokeLoadedCallbacks);
         }
 
-        protected virtual LocalServiceAsset[] AssignServices()
-        {
-            return Array.Empty<LocalServiceAsset>();
-        }
+        protected abstract ILocalServiceFactory[] GetFactories();
+        protected abstract ILocalServiceAsyncFactory[] GetAsyncFactories();
 
         protected abstract LifetimeScope AssignScope();
     }

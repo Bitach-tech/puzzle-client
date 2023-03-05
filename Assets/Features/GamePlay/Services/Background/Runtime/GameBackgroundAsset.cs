@@ -1,23 +1,23 @@
 ﻿using Common.DiContainer.Abstract;
 using Common.Local.Services.Abstract;
 using Cysharp.Threading.Tasks;
-using GamePlay.Common.Paths;
-using Global.Services.ScenesFlow.Handling.Data;
-using Global.Services.ScenesFlow.Runtime.Abstract;
+using GamePlay.Background.Common;
+using Global.Scenes.ScenesFlow.Handling.Data;
+using Global.Scenes.ScenesFlow.Runtime.Abstract;
 using NaughtyAttributes;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace GamePlay.Services.Background.Runtime
+namespace GamePlay.Background.Runtime
 {
     [InlineEditor]
-    [CreateAssetMenu(fileName = GamePlayAssetsPaths.ServicePrefix + "GameBackground",
-        menuName = GamePlayAssetsPaths.GameBackground + "Service")]
-    public class GameBackgroundAsset : LocalServiceAsset
+    [CreateAssetMenu(fileName = BackgroundRoutes.ServiceName,
+        menuName = BackgroundRoutes.ServicePath)]
+    public class GameBackgroundAsset : ScriptableObject, ILocalServiceAsyncFactory
     {
         [SerializeField] [Scene] private string _scene;
 
-        public override async UniTask Create(
+        public async UniTask Create(
             IDependencyRegister builder,
             ILocalServiceBinder serviceBinder,
             ISceneLoader sceneLoader,

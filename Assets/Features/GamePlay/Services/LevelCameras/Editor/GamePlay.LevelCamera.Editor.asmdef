@@ -1,0 +1,19 @@
+{
+    "name": "GamePlay.LevelCamera.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d945054fb520ae0408f2ec087ffa5163",
+        "GUID:93a72f0e04fe04849b1ed36f0000b52b"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

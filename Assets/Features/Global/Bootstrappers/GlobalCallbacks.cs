@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Common.DiContainer.Abstract;
 using Cysharp.Threading.Tasks;
-using Global.Services.Common.Abstract;
-using Global.Services.Common.Abstract.Callbacks;
+using Global.Setup.Service;
+using Global.Setup.Service.Callbacks;
 
 namespace Global.Bootstrappers
 {

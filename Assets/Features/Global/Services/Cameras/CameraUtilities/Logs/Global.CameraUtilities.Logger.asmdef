@@ -1,0 +1,20 @@
+{
+  "name": "Global.CameraUtilities.Logger",
+  "rootNamespace": "",
+  "references": [
+    "GUID:94e5ca42c58876942a8ffdd1c63b952f",
+    "GUID:8f9012bdd1b116c48ab480004500c8f3",
+    "GUID:fe4adae493555af4788e53948d7966ca",
+    "GUID:fb9b00a9a42c4c1459774b1ef88fcd74",
+    "GUID:35689cedd5964c088e7fe0a4aa1cf49c"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

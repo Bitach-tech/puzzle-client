@@ -1,5 +1,5 @@
 ﻿using Common.DiContainer.Abstract;
-using Global.Services.Common.Abstract;
+using Global.Setup.Service;
 using UnityEngine;
 
 namespace Global.GameLoops.Abstract

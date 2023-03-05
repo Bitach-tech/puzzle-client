@@ -1,4 +1,4 @@
-﻿namespace GamePlay.Services.Background.Runtime
+﻿namespace GamePlay.Background.Runtime
 {
     public interface IGameBackground
     {

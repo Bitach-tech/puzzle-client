@@ -1,0 +1,19 @@
+{
+    "name": "Global.CurrentSceneHandlers.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:af9984b749760ce48b92cc80221b4d17",
+        "GUID:d945054fb520ae0408f2ec087ffa5163"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

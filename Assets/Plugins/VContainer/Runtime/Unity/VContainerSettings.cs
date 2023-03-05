@@ -69,7 +69,6 @@ namespace VContainer.Unity
 
         void OnEnable()
         {
-            Debug.Log("ENABLE SETTINGS");
             if (Application.isPlaying)
             {
                 if (RootLifetimeScope != null)

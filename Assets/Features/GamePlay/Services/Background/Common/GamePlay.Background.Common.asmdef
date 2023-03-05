@@ -1,0 +1,6 @@
+﻿{
+  "name": "GamePlay.Background.Common",
+  "references": [
+    "GUID:5f85ab5dc178ff54c81b21f197b82d14"
+  ]
+}

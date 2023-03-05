@@ -14,23 +14,15 @@ namespace VContainer.Internal
 
         public static Registry Build(Registration[] registrations)
         {
-            Debug.Log("Container build 6");
-
             // ThreadStatic
             if (buildBuffer == null)
                 buildBuffer = new Dictionary<Type, Registration>(128);
             
-            Debug.Log("Container build 6");
-
             buildBuffer.Clear();
-
-            Debug.Log("Container build 7");
 
             foreach (var registration in registrations)
             {
                 
-                Debug.Log("Container build 8");
-
                 if (registration.InterfaceTypes is IReadOnlyList<Type> interfaceTypes)
                 {
                     // ReSharper disable once ForCanBeConvertedToForeach
@@ -49,13 +41,9 @@ namespace VContainer.Internal
                 {
                     AddToBuildBuffer(buildBuffer, registration.ImplementationType, registration);
                 }
-                
-                Debug.Log("Container build 9");
-
             }
 
             var hashTable = new FixedTypeKeyHashtable<Registration>(buildBuffer.ToArray());
-            Debug.Log("Container build 10");
 
             return new Registry(hashTable);
         }

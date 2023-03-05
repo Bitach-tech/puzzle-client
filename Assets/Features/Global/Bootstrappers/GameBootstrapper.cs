@@ -1,7 +1,8 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System.Diagnostics;
+using Cysharp.Threading.Tasks;
 using Global.GameLoops.Runtime;
-using Global.Services.Common.Config.Abstract;
-using Global.Services.Common.Scope;
+using Global.Setup.Abstract;
+using Global.Setup.Scope;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -22,89 +23,65 @@ namespace Global.Bootstrappers
 
         private void Awake()
         {
-            Bootstrap().Forget();
-        }
-
-        private async UniTaskVoid Bootstrap()
-        {
-            var servicesScene = new Scene();
-
             SceneManager.sceneLoaded += OnSceneLoaded;
+
+            SceneManager.LoadScene(_servicesScene, LoadSceneMode.Additive);
 
             void OnSceneLoaded(Scene scene, LoadSceneMode mode)
             {
-                servicesScene = scene;
+                SceneManager.sceneLoaded -= OnSceneLoaded;
+
+                Bootstrap(scene).Forget();
             }
+        }
 
-            await SceneManager.LoadSceneAsync(_servicesScene, LoadSceneMode.Additive).ToUniTask();
-
-            Debug.Log($"{servicesScene.name}   {_servicesScene}");
-            await UniTask.WaitUntil(() => servicesScene.name == _servicesScene);
-            Debug.Log(0);
-
-
-            SceneManager.sceneLoaded -= OnSceneLoaded;
-
+        private async UniTaskVoid Bootstrap(Scene servicesScene)
+        {
             var binder = new GlobalServiceBinder(servicesScene);
             var sceneLoader = new GlobalSceneLoader();
             var callbacks = new GlobalCallbacks();
             var dependencyRegister = new ContainerBuilder();
 
-            var services = _services.GetAssets();
-            var servicesTasks = new UniTask[services.Length];
-
-            Debug.Log(1);
-
             var gameLoop = _gameLoop.Create(dependencyRegister, binder);
-            Debug.Log(2);
 
+            var factories = _services.GetFactories();
+            var asyncFactories = _services.GetAsyncFactories();
 
-            for (var i = 0; i < servicesTasks.Length; i++)
-                servicesTasks[i] = services[i].Create(dependencyRegister, binder, sceneLoader, callbacks);
+            var factoryWatch = new Stopwatch();
+            factoryWatch.Start();
 
-            Debug.Log(3);
+            foreach (var factory in factories)
+                factory.Create(dependencyRegister, binder, callbacks);
 
-            await UniTask.WhenAll(servicesTasks);
+            var asyncFactoriesTasks = new UniTask[asyncFactories.Length];
 
-            Debug.Log(4);
+            for (var i = 0; i < asyncFactories.Length; i++)
+                asyncFactoriesTasks[i] = asyncFactories[i].Create(dependencyRegister, binder, sceneLoader, callbacks);
+
+            await UniTask.WhenAll(asyncFactoriesTasks);
 
             var scope = Instantiate(_scope);
             scope.IsRoot = true;
+
             binder.AddToModules(scope);
 
             using (LifetimeScope.Enqueue(OnConfiguration))
             {
-                Debug.Log(5);
-
                 await UniTask.Create(async () => scope.Build());
-                Debug.Log(6);
             }
 
             void OnConfiguration(IContainerBuilder builder)
             {
-                Debug.Log(7);
-
                 dependencyRegister.RegisterAll(builder);
-                Debug.Log(8);
             }
-
-            Debug.Log(9);
-
 
             dependencyRegister.ResolveAllWithCallbacks(scope.Container, callbacks);
 
-            Debug.Log(10);
-
-
             await callbacks.InvokeFlowCallbacks();
 
-            Debug.Log(11);
-
             gameLoop.OnAwake();
-            Debug.Log(12);
 
             gameLoop.Begin();
-            Debug.Log(13);
         }
     }
 }

@@ -1,14 +1,14 @@
 ﻿using Common.Local.ComposedSceneConfig;
 using Cysharp.Threading.Tasks;
 using GamePlay.Config.Services.Runtime;
+using Global.Cameras.CurrentCameras.Runtime;
+using Global.Cameras.GlobalCameras.Runtime;
 using Global.GameLoops.Abstract;
 using Global.GameLoops.Logs;
-using Global.Services.Common.Scope;
-using Global.Services.CurrentCameras.Runtime;
-using Global.Services.CurrentSceneHandlers.Runtime;
-using Global.Services.GlobalCameras.Runtime;
-using Global.Services.LoadingScreens.Runtime;
-using Global.Services.ScenesFlow.Runtime.Abstract;
+using Global.Scenes.CurrentSceneHandlers.Runtime;
+using Global.Scenes.ScenesFlow.Runtime.Abstract;
+using Global.Setup.Scope;
+using Global.UI.LoadingScreens.Runtime;
 using UnityEngine;
 using VContainer;
 
@@ -55,7 +55,6 @@ namespace Global.GameLoops.Runtime
         public override void Begin()
         {
             _logger.OnLoadLevel();
-            Debug.Log(1);
             LoadScene(_game).Forget();
         }
 

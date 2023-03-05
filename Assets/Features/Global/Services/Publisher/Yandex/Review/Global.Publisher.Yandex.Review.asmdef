@@ -1,0 +1,4 @@
+﻿{
+  "name": "Global.Publisher.Yandex.Review",
+  "references":[ "GUID:7053add3a4ec4a1abc56653ba79958f2", "GUID:f51ebe6a0ceec4240a699833d6309b23", "GUID:6d84dae42a174a44b094144be6e70401", "GUID:244709c975894516be2c2191bd1048d7", "GUID:5f80a730d9364ee8bdab0b5deae5d790" ]
+}

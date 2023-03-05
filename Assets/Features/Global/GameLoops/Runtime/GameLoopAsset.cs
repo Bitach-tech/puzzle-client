@@ -1,16 +1,16 @@
 ﻿using Common.DiContainer.Abstract;
-using Global.Common;
 using Global.GameLoops.Abstract;
+using Global.GameLoops.Common;
 using Global.GameLoops.Logs;
-using Global.Services.Common.Abstract;
+using Global.Setup.Service;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Global.GameLoops.Runtime
 {
     [InlineEditor]
-    [CreateAssetMenu(fileName = GlobalAssetsPaths.ServicePrefix + "Global",
-        menuName = GlobalAssetsPaths.GameLoop + "Service")]
+    [CreateAssetMenu(fileName = GameLoopRouter.ServiceName,
+        menuName = GameLoopRouter.ServicePath)]
     public class GameLoopAsset : GlobalGameLoopAsset
     {
         [SerializeField] [Indent] private GameLoopLogSettings _logSettings;

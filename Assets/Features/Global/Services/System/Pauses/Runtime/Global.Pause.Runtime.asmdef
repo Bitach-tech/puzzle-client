@@ -1,0 +1,20 @@
+{
+    "name": "Global.Pause.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:04243451437dcfe48b583ab43ef0a8fa",
+        "GUID:47b5752185ff436fa116dfaa3b0957be",
+        "GUID:9a4f8599d61c49d6b419a1dcc2a9744e",
+        "GUID:e07e6ccd9241474dbca4e70862df2bc2",
+        "GUID:401398c75a71e5444a495125c9dd1a21"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

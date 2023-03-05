@@ -104,11 +104,7 @@ GameObject:
   - component: {fileID: 1382579519101422918}
   - component: {fileID: 1382579519101422919}
   - component: {fileID: 1382579519101422912}
-  - component: {fileID: 3838781418823266169}
-  - component: {fileID: 1301759860720059268}
-  - component: {fileID: 2380821532056932458}
-  - component: {fileID: 5002058818766848274}
-  - component: {fileID: 4932963739228732129}
+  - component: {fileID: 3692177909280186413}
   m_Layer: 5
   m_Name: TextPlate
   m_TagString: Untagged
@@ -191,7 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 12
---- !u!114 &3838781418823266169
+--- !u!114 &3692177909280186413
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,73 +196,49 @@ MonoBehaviour:
   m_GameObject: {fileID: 1382579519101422914}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66650f353cca40f18f011102e333e91f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c386f639a384c469d5550649e8f79fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: {fileID: 11400000, guid: ac4a91bdc3ecaf44a8ddda711e0794ec, type: 2}
-  _brightness: {fileID: 11400000, guid: 2ebdcb5a47ac9214a8775144ce6c6ef8, type: 2}
-  _plate: {fileID: 1382579519101422919}
-  _center: {fileID: 1382579519342336773}
---- !u!114 &1301759860720059268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1382579519101422914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17c6226d416d43bf84292f4638d9133a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _color: {fileID: 0}
-  _text: {fileID: 2427144228255923199}
---- !u!114 &2380821532056932458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1382579519101422914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3c7a7ff34d249c19096c1fe9a620102, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _config: {fileID: 11400000, guid: bf39b78bbbfb9634fb97c3aff7c3c4ac, type: 2}
-  _plate: {fileID: 1382579519101422919}
-  _outline: {fileID: 1382579518460929449}
-  _center: {fileID: 1382579519342336773}
---- !u!114 &5002058818766848274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1382579519101422914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cb22b2800a84db59b452db9a4fcba75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _config: {fileID: 11400000, guid: bd2b91a0844c6934293e4d25fcc6c10b, type: 2}
-  _plate: {fileID: 1382579519101422912}
-  _outline: {fileID: 1382579518460929450}
-  _center: {fileID: 1382579519342336774}
---- !u!114 &4932963739228732129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1382579519101422914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fd5808b9db34b459aa7fab2e0aa4d48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _config: {fileID: 11400000, guid: 814701bd7582c9141aa9ba8fad80b00f, type: 2}
-  _center: {fileID: 1382579519342336775}
+  _features:
+  - rid: 960519668857831430
+  - rid: 960519668857831431
+  - rid: 960519668857831432
+  - rid: 960519668857831433
+  - rid: 960519668857831434
+  references:
+    version: 2
+    RefIds:
+    - rid: 960519668857831430
+      type: {class: CenterOffsetSetter, ns: Common.UI.UniversalPlates.Runtime.Plate, asm: Common.UniversalPlate.Runtime}
+      data:
+        _config: {fileID: 11400000, guid: 814701bd7582c9141aa9ba8fad80b00f, type: 2}
+        _center: {fileID: 1382579519342336775}
+    - rid: 960519668857831431
+      type: {class: FalloffSetter, ns: Common.UI.UniversalPlates.Runtime.Plate, asm: Common.UniversalPlate.Runtime}
+      data:
+        _config: {fileID: 11400000, guid: bf39b78bbbfb9634fb97c3aff7c3c4ac, type: 2}
+        _plate: {fileID: 1382579519101422919}
+        _outline: {fileID: 1382579518460929449}
+        _center: {fileID: 1382579519342336773}
+    - rid: 960519668857831432
+      type: {class: PlateColorSetter, ns: Common.UI.UniversalPlates.Runtime.Plate, asm: Common.UniversalPlate.Runtime}
+      data:
+        _color: {r: 0, g: 0, b: 0, a: 0}
+        _brightness: {fileID: 11400000, guid: 2ebdcb5a47ac9214a8775144ce6c6ef8, type: 2}
+        _plate: {fileID: 1382579519101422919}
+        _center: {fileID: 1382579519342336773}
+    - rid: 960519668857831433
+      type: {class: RadiusSetter, ns: Common.UI.UniversalPlates.Runtime.Plate, asm: Common.UniversalPlate.Runtime}
+      data:
+        _config: {fileID: 11400000, guid: bd2b91a0844c6934293e4d25fcc6c10b, type: 2}
+        _plate: {fileID: 1382579519101422912}
+        _outline: {fileID: 1382579518460929450}
+        _center: {fileID: 1382579519342336774}
+    - rid: 960519668857831434
+      type: {class: TextColorSetter, ns: Common.UI.UniversalPlates.Runtime.Plate, asm: Common.UniversalPlate.Runtime}
+      data:
+        _color: {r: 0, g: 0, b: 0, a: 0}
+        _text: {fileID: 2427144228255923199}
 --- !u!1 &1382579519342336768
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,7 +425,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 63.9
+  m_fontSize: 95.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

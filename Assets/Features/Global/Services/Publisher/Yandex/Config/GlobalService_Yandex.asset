@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a98f9d980684a218c7f7bfc0f4dcb45, type: 3}
+  m_Name: GlobalService_Yandex
+  m_EditorClassIdentifier: 
+  _debugScene: Yandex_Debug
+  _callbacksPrefab: {fileID: 3703616330694887832, guid: 93bdad8db7790a846a2666d7b712f300, type: 3}

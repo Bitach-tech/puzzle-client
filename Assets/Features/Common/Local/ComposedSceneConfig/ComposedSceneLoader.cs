@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using Global.Services.ScenesFlow.Handling.Data;
-using Global.Services.ScenesFlow.Handling.Result;
-using Global.Services.ScenesFlow.Runtime.Abstract;
+using Global.Scenes.ScenesFlow.Handling.Data;
+using Global.Scenes.ScenesFlow.Handling.Result;
+using Global.Scenes.ScenesFlow.Runtime.Abstract;
 
 namespace Common.Local.ComposedSceneConfig
 {

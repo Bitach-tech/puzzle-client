@@ -1,0 +1,9 @@
+﻿{
+  "name": "Global.Publisher.Abstract.Advertisment",
+  "references": [
+    "GUID:dee463d024abe6a41ac7efd263f0a689",
+    "GUID:f51ebe6a0ceec4240a699833d6309b23",
+    "GUID:67f67dcce9d9e8a43a8e45bc1fe5534c",
+    "GUID:401398c75a71e5444a495125c9dd1a21"
+  ]
+}

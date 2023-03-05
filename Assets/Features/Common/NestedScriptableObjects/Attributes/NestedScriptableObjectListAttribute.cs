@@ -4,12 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Sirenix.OdinInspector;
-using UnityEngine;
-using Object = UnityEngine.Object;
-#if UNITY_EDITOR
 using Sirenix.OdinInspector.Editor;
 using UnityEditor;
-#endif
+using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Common.NestedScriptableObjects.Attributes
 {

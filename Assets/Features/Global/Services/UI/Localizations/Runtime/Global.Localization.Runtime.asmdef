@@ -1,0 +1,4 @@
+﻿{
+  "name": "Global.Localization.Runtime",
+  "references":[ "GUID:d68f67f03d2e4db58c95ed5112fbb9fe", "GUID:e3f90ec7da70443198fdd279336fd055", "GUID:401398c75a71e5444a495125c9dd1a21", "GUID:ac84fa5698134749b8ca9ae45e3eab59", "GUID:7347c5f7bb3f4b8b84942d18625079ec", "GUID:e07e6ccd9241474dbca4e70862df2bc2" ]
+}

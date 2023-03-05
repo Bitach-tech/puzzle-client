@@ -1,10 +1,10 @@
-﻿using GamePlay.Common.Paths;
+﻿using GamePlay.LevelCameras.Common;
 using UnityEngine;
 
-namespace GamePlay.Services.LevelCameras.Runtime
+namespace GamePlay.LevelCameras.Runtime
 {
-    [CreateAssetMenu(fileName = GamePlayAssetsPaths.ConfigPrefix + "LevelCamera",
-        menuName = GamePlayAssetsPaths.LevelCamera + "Config")]
+    [CreateAssetMenu(fileName = LevelCameraRoutes.ConfigName,
+        menuName = LevelCameraRoutes.ConfigPath)]
     public class LevelCameraConfigAsset : ScriptableObject
     {
         [SerializeField] [Min(0f)] private float _followSpeed;

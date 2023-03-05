@@ -1,12 +1,12 @@
 ﻿using Cysharp.Threading.Tasks;
-using Global.Services.Common.Abstract.Scenes;
+using Global.Setup.Service.Scenes;
 using UnityEngine.SceneManagement;
 
 namespace Global.Bootstrappers
 {
     public class GlobalSceneLoader : IGlobalSceneLoader
     {
-        public async UniTask<InternalSceneLoadResult<T>> Load<T>(InternalScene<T> scene)
+        public async UniTask<InternalSceneLoadResult<T>> LoadAsync<T>(InternalScene<T> scene)
         {
             var targetScene = new Scene();
 

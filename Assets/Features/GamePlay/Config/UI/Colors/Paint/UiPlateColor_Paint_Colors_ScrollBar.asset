@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b9584d38d74f5eb91361bb2ec53001, type: 3}
   m_Name: UiPlateColor_Paint_Colors_ScrollBar
   m_EditorClassIdentifier: 
-  _color: {r: 0.9719928, g: 1, b: 0.2971698, a: 1}
+  _color: {r: 0.12322002, g: 0.6698113, b: 0.24912955, a: 1}

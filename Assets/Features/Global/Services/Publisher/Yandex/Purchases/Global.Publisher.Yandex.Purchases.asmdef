@@ -1,0 +1,4 @@
+﻿{
+  "name": "Global.Publisher.Yandex.Purchases",
+  "references":[ "GUID:775ec363996d46febc21c3ee3fc721ba", "GUID:f51ebe6a0ceec4240a699833d6309b23", "GUID:6d84dae42a174a44b094144be6e70401", "GUID:5f80a730d9364ee8bdab0b5deae5d790" ]
+}

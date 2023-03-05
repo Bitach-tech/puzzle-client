@@ -1,0 +1,9 @@
+﻿{
+  "name": "Global.Publisher.Yandex.DataStorage",
+  "references": [
+    "GUID:25f79b9f7aeb42a8af7eb332b6a4ba79",
+    "GUID:f51ebe6a0ceec4240a699833d6309b23",
+    "GUID:6d84dae42a174a44b094144be6e70401",
+    "GUID:401398c75a71e5444a495125c9dd1a21"
+  ]
+}

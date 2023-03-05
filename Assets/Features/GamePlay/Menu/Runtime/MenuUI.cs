@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using Common.Local.Services.Abstract.Callbacks;
 using Cysharp.Threading.Tasks;
-using GamePlay.Puzzle.ImageStorage.Runtime;
-using GamePlay.Services.Background.Runtime;
-using Global.Services.MessageBrokers.Runtime;
-using Global.Services.ServiceSDK.Advertisment.Abstract;
-using Global.Services.UiStateMachines.Runtime;
+using GamePlay.Background.Runtime;
+using GamePlay.Level.ImageStorage.Runtime;
+using Global.Publisher.Abstract.Advertisment;
+using Global.Publisher.Abstract.DataStorages;
+using Global.Publisher.Abstract.Saves;
+using Global.System.MessageBrokers.Runtime;
+using Global.UI.UiStateMachines.Runtime;
 using UnityEngine;
 using VContainer;
 
@@ -16,31 +18,29 @@ namespace GamePlay.Menu.Runtime
     {
         [Inject]
         private void Construct(
-            IImageStorage storage,
             IUiStateMachine uiStateMachine,
             IGameBackground background,
             IAds ads,
+            IDataStorage storage,
             UiConstraints constraints)
         {
+            _storage = storage;
             _ads = ads;
             _background = background;
-            _storage = storage;
             _uiStateMachine = uiStateMachine;
             _constraints = constraints;
         }
 
-        [SerializeField] private PaintImageSelector _selectorPrefab;
         [SerializeField] private GameObject _body;
-        [SerializeField] private Transform _selectorsRoot;
-        [SerializeField] private int _freeCount = 3;
-        
+        [SerializeField] private int _freeCounter = 5;
+        [SerializeField] private List<LevelSelector> _selectors = new();
+
         private UiConstraints _constraints;
         private IUiStateMachine _uiStateMachine;
-        private IImageStorage _storage;
 
-        private readonly List<PaintImageSelector> _selectors = new();
         private IGameBackground _background;
         private IAds _ads;
+        private IDataStorage _storage;
 
         public UiConstraints Constraints => _constraints;
         public string Name => "MainMenu";
@@ -49,21 +49,13 @@ namespace GamePlay.Menu.Runtime
         {
             _body.SetActive(false);
 
-            var images = _storage.GetImages();
+            var save = _storage.GetEntry<LevelsSave>(SavesPaths.Levels);
 
-            var counter = 0;
-
-            foreach (var image in images)
-            {
-                counter++;
-                var selector = Instantiate(_selectorPrefab, _selectorsRoot);
-
-                if (counter <= _freeCount)
-                    selector.Construct(image, false);
+            for (var i = 0; i < _selectors.Count; i++)
+                if (i >= _freeCounter && save.IsRewarded(i) == false)
+                    _selectors[i].Construct(true, i);
                 else
-                    selector.Construct(image, true);
-                _selectors.Add(selector);
-            }
+                    _selectors[i].Construct(false, i);
         }
 
         public void OnEnabled()
@@ -96,17 +88,22 @@ namespace GamePlay.Menu.Runtime
             _body.SetActive(false);
         }
 
-        private void OnSelected(PuzzleImage image, bool isRewardable)
+        private void OnSelected(PuzzleImage difficulty, bool isRewardable, int id)
         {
-            ProcessSelection(image, isRewardable).Forget();
+            ProcessSelection(difficulty, isRewardable, id).Forget();
         }
 
-        private async UniTaskVoid ProcessSelection(PuzzleImage image, bool isRewardable)
+        private async UniTaskVoid ProcessSelection(PuzzleImage difficulty, bool isRewardable, int id)
         {
             if (isRewardable == true)
                 await _ads.ShowRewarded();
-            
-            var clicked = new PlayClickEvent(image);
+
+            Debug.Log($"On unlocked: {id}");
+
+            var save = _storage.GetEntry<LevelsSave>(SavesPaths.Levels);
+            save.OnRewarded(id);
+
+            var clicked = new PlayClickEvent(difficulty);
             Msg.Publish(clicked);
         }
     }

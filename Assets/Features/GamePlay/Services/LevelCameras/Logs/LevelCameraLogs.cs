@@ -1,7 +1,7 @@
 ﻿using System;
 using Common.ReadOnlyDictionaries.Runtime;
 
-namespace GamePlay.Services.LevelCameras.Logs
+namespace GamePlay.LevelCameras.Logs
 {
     [Serializable]
     public class LevelCameraLogs : ReadOnlyDictionary<LevelCameraLogType, bool>

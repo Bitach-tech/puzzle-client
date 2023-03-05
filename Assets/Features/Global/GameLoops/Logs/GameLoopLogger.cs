@@ -1,4 +1,4 @@
-﻿using Global.Services.Loggers.Runtime;
+﻿using Global.System.Loggers.Runtime;
 
 namespace Global.GameLoops.Logs
 {

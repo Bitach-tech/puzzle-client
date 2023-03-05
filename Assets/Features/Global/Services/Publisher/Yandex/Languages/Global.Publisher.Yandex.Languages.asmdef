@@ -1,0 +1,4 @@
+﻿{
+  "name": "Global.Publisher.Yandex.Languages",
+  "references":[ "GUID:ac84fa5698134749b8ca9ae45e3eab59", "GUID:7347c5f7bb3f4b8b84942d18625079ec" ]
+}

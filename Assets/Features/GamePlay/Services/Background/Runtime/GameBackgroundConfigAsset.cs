@@ -1,12 +1,12 @@
-﻿using GamePlay.Common.Paths;
+﻿using GamePlay.Background.Common;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace GamePlay.Services.Background.Runtime
+namespace GamePlay.Background.Runtime
 {
     [InlineEditor]
-    [CreateAssetMenu(fileName = GamePlayAssetsPaths.ConfigPrefix + "GameBackground",
-        menuName = GamePlayAssetsPaths.GameBackground + "Config")]
+    [CreateAssetMenu(fileName = BackgroundRoutes.ConfigName,
+        menuName = BackgroundRoutes.ConfigPath)]
     public class GameBackgroundConfigAsset : ScriptableObject
     {
         [SerializeField] [Min(0f)] private float _lineWidth;

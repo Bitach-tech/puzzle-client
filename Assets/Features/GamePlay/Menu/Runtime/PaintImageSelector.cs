@@ -1,5 +1,5 @@
 ﻿using System;
-using GamePlay.Puzzle.ImageStorage.Runtime;
+using GamePlay.Level.ImageStorage.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
 

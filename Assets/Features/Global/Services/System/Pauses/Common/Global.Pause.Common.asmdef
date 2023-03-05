@@ -1,0 +1,16 @@
+{
+    "name": "Global.Pause.Common",
+    "rootNamespace": "",
+    "references": [
+        "GUID:fb9b00a9a42c4c1459774b1ef88fcd74"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

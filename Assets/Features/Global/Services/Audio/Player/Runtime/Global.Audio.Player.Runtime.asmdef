@@ -1,0 +1,16 @@
+﻿{
+  "name": "Global.Audio.Player.Runtime",
+  "references": [
+    "GUID:69d1e1ccfd5f4cd38acf6e059481c727",
+    "GUID:401398c75a71e5444a495125c9dd1a21",
+    "GUID:9b51a48d04164033bd0ea196e24c1113",
+    "GUID:fb9b00a9a42c4c1459774b1ef88fcd74",
+    "GUID:f51ebe6a0ceec4240a699833d6309b23",
+    "GUID:e07e6ccd9241474dbca4e70862df2bc2",
+    "GUID:67f67dcce9d9e8a43a8e45bc1fe5534c",
+    "GUID:1a1e9f8cc2854e1a9bbf15ced1e67a77",
+    "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
+    "GUID:25f79b9f7aeb42a8af7eb332b6a4ba79",
+    "GUID:d72abbe452a64c918d3a180b7e1a6fb5"
+  ]
+}

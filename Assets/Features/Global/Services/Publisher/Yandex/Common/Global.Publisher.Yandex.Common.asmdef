@@ -1,0 +1,6 @@
+﻿{
+  "name": "Global.Publisher.Yandex.Common",
+  "references": [
+    "GUID:fb9b00a9a42c4c1459774b1ef88fcd74"
+  ]
+}

@@ -1,0 +1,8 @@
+﻿{
+  "name": "GamePlay.Services.Overlays.SoundSwitches.Runtime",
+  "references": [
+    "GUID:9b51a48d04164033bd0ea196e24c1113",
+    "GUID:d1ce0682accb4981b74e16db01db8de3",
+    "GUID:47b5752185ff436fa116dfaa3b0957be"
+  ]
+}
