@@ -14,7 +14,7 @@ namespace GamePlay.Level.ImageStorage.Runtime
     public class ImageStorageAsset : ScriptableObject, ILocalServiceFactory
     {
         [SerializeField] [NestedScriptableObjectList]
-        private List<PuzzleImage> _images;
+        private List<LevelImage> _images;
 
         [SerializeField] private ImageStorage _prefab;
 

@@ -22,8 +22,10 @@ namespace GamePlay.Menu.Runtime
             IGameBackground background,
             IAds ads,
             IDataStorage storage,
+            IImageStorage imageStorage,
             UiConstraints constraints)
         {
+            _imageStorage = imageStorage;
             _storage = storage;
             _ads = ads;
             _background = background;
@@ -41,6 +43,7 @@ namespace GamePlay.Menu.Runtime
         private IGameBackground _background;
         private IAds _ads;
         private IDataStorage _storage;
+        private IImageStorage _imageStorage;
 
         public UiConstraints Constraints => _constraints;
         public string Name => "MainMenu";
@@ -50,12 +53,20 @@ namespace GamePlay.Menu.Runtime
             _body.SetActive(false);
 
             var save = _storage.GetEntry<LevelsSave>(SavesPaths.Levels);
+            var images = _imageStorage.GetImages();
 
-            for (var i = 0; i < _selectors.Count; i++)
+            foreach (var selector in _selectors)
+                selector.gameObject.SetActive(false);
+
+            for (var i = 0; i < images.Count; i++)
+            {
+                _selectors[i].gameObject.SetActive(false);
+
                 if (i >= _freeCounter && save.IsRewarded(i) == false)
-                    _selectors[i].Construct(true, i);
+                    _selectors[i].Construct(images[i], true, i);
                 else
-                    _selectors[i].Construct(false, i);
+                    _selectors[i].Construct(images[i], false, i);
+            }
         }
 
         public void OnEnabled()
@@ -88,12 +99,12 @@ namespace GamePlay.Menu.Runtime
             _body.SetActive(false);
         }
 
-        private void OnSelected(PuzzleImage difficulty, bool isRewardable, int id)
+        private void OnSelected(LevelImage difficulty, bool isRewardable, int id)
         {
             ProcessSelection(difficulty, isRewardable, id).Forget();
         }
 
-        private async UniTaskVoid ProcessSelection(PuzzleImage difficulty, bool isRewardable, int id)
+        private async UniTaskVoid ProcessSelection(LevelImage difficulty, bool isRewardable, int id)
         {
             if (isRewardable == true)
                 await _ads.ShowRewarded();

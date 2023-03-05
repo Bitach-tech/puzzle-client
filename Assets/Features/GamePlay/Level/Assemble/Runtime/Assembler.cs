@@ -47,7 +47,7 @@ namespace GamePlay.Level.Assemble.Runtime
         private PartPicker _picker;
         private PickHandler _handler;
         private IPuzzleBackground _background;
-        private PuzzleImage _image;
+        private LevelImage _image;
 
         private CancellationTokenSource _cancellation;
 
@@ -73,7 +73,7 @@ namespace GamePlay.Level.Assemble.Runtime
             _tipRequestListener?.Dispose();
         }
 
-        public void AssemblePreview(PuzzleImage image)
+        public void AssemblePreview(LevelImage image)
         {
             _image = image;
             _parts.OnReset();

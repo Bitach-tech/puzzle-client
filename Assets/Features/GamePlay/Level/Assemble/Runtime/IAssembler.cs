@@ -4,7 +4,7 @@ namespace GamePlay.Level.Assemble.Runtime
 {
     public interface IAssembler
     {
-        void AssemblePreview(PuzzleImage image);
+        void AssemblePreview(LevelImage image);
         void AssembleCurrent();
         void Begin();
         void Cancel();

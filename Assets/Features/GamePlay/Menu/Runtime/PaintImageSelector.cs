@@ -12,10 +12,10 @@ namespace GamePlay.Menu.Runtime
         [SerializeField] private GameObject _adSign;
         [SerializeField] private Button _button;
 
-        private PuzzleImage _current;
+        private LevelImage _current;
         private bool _isRewardable;
 
-        public event Action<PuzzleImage, bool> Selected;
+        public event Action<LevelImage, bool> Selected;
 
         private void OnEnable()
         {
@@ -27,7 +27,7 @@ namespace GamePlay.Menu.Runtime
             _button.onClick.RemoveListener(OnClicked);
         }
 
-        public void Construct(PuzzleImage image, bool isRewardable)
+        public void Construct(LevelImage image, bool isRewardable)
         {
             _isRewardable = isRewardable;
             _current = image;

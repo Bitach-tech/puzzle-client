@@ -4,11 +4,11 @@ namespace GamePlay.Menu.Runtime
 {
     public readonly struct PlayClickEvent
     {
-        public PlayClickEvent(PuzzleImage difficulty)
+        public PlayClickEvent(LevelImage difficulty)
         {
             Difficulty = difficulty;
         }
 
-        public readonly PuzzleImage Difficulty;
+        public readonly LevelImage Difficulty;
     }
 }

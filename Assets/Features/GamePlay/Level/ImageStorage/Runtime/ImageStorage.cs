@@ -9,16 +9,16 @@ namespace GamePlay.Level.ImageStorage.Runtime
     public class ImageStorage : MonoBehaviour, IImageStorage
     {
         [Inject]
-        private void Construct(PuzzleImage[] images)
+        private void Construct(LevelImage[] images)
         {
             _images = images;
         }
 
-        private PuzzleImage[] _images;
+        private LevelImage[] _images;
 
-        public IReadOnlyList<PuzzleImage> GetImages()
+        public IReadOnlyList<LevelImage> GetImages()
         {
-            return new ReadOnlyCollection<PuzzleImage>(_images);
+            return new ReadOnlyCollection<LevelImage>(_images);
         }
     }
 }

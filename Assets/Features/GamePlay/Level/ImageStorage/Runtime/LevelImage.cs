@@ -7,7 +7,7 @@ namespace GamePlay.Level.ImageStorage.Runtime
     [InlineEditor]
     [CreateAssetMenu(fileName = ImageStorageRoutes.ImageName,
         menuName = ImageStorageRoutes.ImagePath)]
-    public class PuzzleImage : ScriptableObject
+    public class LevelImage : ScriptableObject
     {
         [SerializeField] private Sprite _preview;
         [SerializeField] private Sprite _background;

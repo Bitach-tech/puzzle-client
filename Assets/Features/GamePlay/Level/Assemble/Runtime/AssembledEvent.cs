@@ -4,11 +4,11 @@ namespace GamePlay.Level.Assemble.Runtime
 {
     public readonly struct AssembledEvent
     {
-        public AssembledEvent(PuzzleImage image)
+        public AssembledEvent(LevelImage image)
         {
             Image = image;
         }
         
-        public readonly PuzzleImage Image;
+        public readonly LevelImage Image;
     }
 }

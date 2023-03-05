@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using GamePlay.Level.ImageStorage.Common;
 using GamePlay.Level.ImageStorage.Runtime;
 using Sirenix.OdinInspector;
 using UnityEditor;
@@ -9,8 +10,8 @@ using UnityEngine;
 
 namespace GamePlay.Level.ImageStorage.Editor
 {
-   // [CreateAssetMenu(fileName = "ImageProcessor",
-  //      menuName = GamePlayAssetsPaths.ImageStorage + "Processor")]
+    [CreateAssetMenu(fileName = ImageStorageRoutes.ProcessorName,
+        menuName = ImageStorageRoutes.ProcessorPath)]
     public class ImagesProcessor : ScriptableObject
     {
         [SerializeField] private Vector2Int _gridSize = new(10, 6);
@@ -25,7 +26,7 @@ namespace GamePlay.Level.ImageStorage.Editor
         
         [SerializeField] private Texture2D[] _images;
 
-        [SerializeField] private PuzzleImage[] _assets;
+        [SerializeField] private LevelImage[] _assets;
 
         [Button]
         private void Process()
@@ -34,7 +35,7 @@ namespace GamePlay.Level.ImageStorage.Editor
                 OnPostprocessTexture(_images[i], _assets[i]);
         }
         
-        private void OnPostprocessTexture(Texture2D texture, PuzzleImage asset)
+        private void OnPostprocessTexture(Texture2D texture, LevelImage asset)
         {
             var assetPath = AssetDatabase.GetAssetPath(texture);
             var textureImporter = AssetImporter.GetAtPath(assetPath) as TextureImporter;

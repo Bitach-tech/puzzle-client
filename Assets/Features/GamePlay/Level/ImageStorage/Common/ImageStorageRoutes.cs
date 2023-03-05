@@ -11,5 +11,8 @@ namespace GamePlay.Level.ImageStorage.Common
 
         public const string ImagePath = _paths + "Image";
         public const string ImageName = "LevelImage";
+        
+        public const string ProcessorPath = _paths + "Processor";
+        public const string ProcessorName = "ImageProcessor";
     }
 }
