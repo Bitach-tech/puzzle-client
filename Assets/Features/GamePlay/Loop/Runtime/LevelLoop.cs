@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using Common.Local.Services.Abstract.Callbacks;
 using GamePlay.Level.Assemble.Runtime;
-using GamePlay.Level.ImageStorage.Runtime;
 using GamePlay.Level.UI.Root.Runtime;
 using GamePlay.Level.UI.Win.Runtime;
 using GamePlay.LevelCameras.Runtime;
@@ -11,6 +9,8 @@ using GamePlay.Loop.Logs;
 using GamePlay.Menu.Runtime;
 using Global.Cameras.CurrentCameras.Runtime;
 using Global.Publisher.Abstract.Advertisment;
+using Global.Publisher.Abstract.DataStorages;
+using Global.Publisher.Abstract.Saves;
 using Global.System.MessageBrokers.Runtime;
 
 namespace GamePlay.Loop.Runtime
@@ -27,15 +27,13 @@ namespace GamePlay.Loop.Runtime
             IAds ads,
             IAssembler assembler,
             IWinScreen winScreen,
-            IImageStorage imageStorage,
-            LevelLoopLogger logger,
-            int imagesCount)
+            IDataStorage dataStorage,
+            LevelLoopLogger logger)
         {
-            _imagesCount = imagesCount;
             _ads = ads;
             _assembler = assembler;
             _winScreen = winScreen;
-            _imageStorage = imageStorage;
+            _dataStorage = dataStorage;
             _menuUI = menuUI;
             _levelUiRoot = levelUiRoot;
             _logger = logger;
@@ -46,7 +44,7 @@ namespace GamePlay.Loop.Runtime
         private readonly IAds _ads;
         private readonly IAssembler _assembler;
         private readonly IWinScreen _winScreen;
-        private readonly IImageStorage _imageStorage;
+        private readonly IDataStorage _dataStorage;
 
         private readonly ICurrentCamera _currentCamera;
         private readonly ILevelCamera _levelCamera;
@@ -56,11 +54,10 @@ namespace GamePlay.Loop.Runtime
         private readonly IMenuUI _menuUI;
         private readonly ILevelUiRoot _levelUiRoot;
 
-        private readonly int _imagesCount;
-
         private IDisposable _assembleListener;
-        private IDisposable _playClickListener;
-        private IDisposable _menuClickListener;
+        private IDisposable _playListener;
+        private IDisposable _menuListener;
+        private IDisposable _replayListener;
 
         public void OnLoaded()
         {
@@ -74,45 +71,57 @@ namespace GamePlay.Loop.Runtime
         public void OnEnabled()
         {
             _assembleListener = Msg.Listen<AssembledEvent>(OnAssembled);
-            _playClickListener = Msg.Listen<PlayClickEvent>(OnPlayClicked);
-            _menuClickListener = Msg.Listen<MenuRequestEvent>(OnMenuClicked);
+            _playListener = Msg.Listen<PlayRequestEvent>(OnPlayRequested);
+            _menuListener = Msg.Listen<MenuRequestEvent>(OnMenuRequested);
+            _replayListener = Msg.Listen<ReplayRequestEvent>(OnReplayRequested);
         }
 
         public void OnDisabled()
         {
             _assembleListener?.Dispose();
-            _playClickListener?.Dispose();
-            _menuClickListener?.Dispose();
+            _playListener?.Dispose();
+            _menuListener?.Dispose();
+            _replayListener?.Dispose();
         }
 
         private void OnAssembled(AssembledEvent data)
         {
             _winScreen.Open();
+            var save = _dataStorage.GetLevels();
+            save.OnAssembled(data.Image.Index);
         }
 
-        private void OnPlayClicked(PlayClickEvent data)
+        private void OnPlayRequested(PlayRequestEvent data)
         {
-            // _levelUiRoot.Open();
-            // _assembler.Stop();
-            // _ads.ShowInterstitial();
-            //
-            // var storedImages = _imageStorage.GetShuffledImages();
-            // var images = new List<LevelImage>();
-            //
-            // var counter = 0;
-            //
-            // while (counter < _imagesCount && counter < storedImages.Count)
-            // {
-            //     images.Add(storedImages[counter]);
-            //     counter++;
-            // }
-            //
-            // _assembler.Begin(images.ToArray(), data.Difficulty);
+            _assembler.Cancel();
+            _levelUiRoot.Open();
+
+            var save = _dataStorage.GetLevels();
+
+            _assembler.AssemblePreview(data.Image);
+
+            if (save.IsAssembled(data.Image.Index) == false)
+            {
+                _ads.ShowInterstitial();
+                _assembler.Begin();
+            }
+            else
+            {
+                _winScreen.Open();
+            }
         }
 
-        private void OnMenuClicked(MenuRequestEvent data)
+        private void OnReplayRequested(ReplayRequestEvent data)
         {
-            //_assembler.Stop();
+            _assembler.Cancel();
+            _assembler.AssembleCurrent();
+            _assembler.Begin();
+            _winScreen.Close();
+        }
+
+        private void OnMenuRequested(MenuRequestEvent data)
+        {
+            _assembler.Cancel();
             _menuUI.Open();
         }
     }

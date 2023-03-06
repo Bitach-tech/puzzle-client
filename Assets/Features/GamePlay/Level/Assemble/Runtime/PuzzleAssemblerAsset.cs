@@ -3,6 +3,7 @@ using Common.Local.Services.Abstract;
 using Cysharp.Threading.Tasks;
 using GamePlay.Level.Assemble.Common;
 using GamePlay.Level.Assemble.Runtime.Background;
+using GamePlay.Level.Assemble.Runtime.Borders;
 using GamePlay.Level.Assemble.Runtime.Handler;
 using GamePlay.Level.Assemble.Runtime.Parts;
 using GamePlay.Level.Assemble.Runtime.StartPositions;
@@ -56,6 +57,9 @@ namespace GamePlay.Level.Assemble.Runtime
             builder.RegisterComponent(bootstrapper.Background)
                 .As<IPuzzleBackground>();
 
+            builder.RegisterComponent(bootstrapper.Borders)
+                .As<IPuzzleBorders>();
+            
             builder.Register<PartPicker>();
             builder.Register<PickHandler>()
                 .WithParameter(_config);

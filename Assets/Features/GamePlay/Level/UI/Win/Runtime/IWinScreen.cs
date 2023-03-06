@@ -3,5 +3,6 @@
     public interface IWinScreen
     {
         void Open();
+        void Close();
     }
 }

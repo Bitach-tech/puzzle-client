@@ -102,9 +102,12 @@ namespace GamePlay.Level.Assemble.Runtime
             _parts.OnReset();
             _picker.Cancel();
             _handler.Cancel();
+            
             _cancellation?.Cancel();
+            _cancellation?.Dispose();
+            _cancellation = null;
 
-            foreach (var part in _parts.Available)
+            foreach (var part in _parts.All)
                 part.Disable();
         }
 
@@ -117,7 +120,6 @@ namespace GamePlay.Level.Assemble.Runtime
 
             while (_parts.Available.Count != 0)
             {
-                Debug.Log(_parts.Available.Count);
                 var pickedPart = await _picker.Pick();
 
                 await _handler.OnPicked(pickedPart);
@@ -138,21 +140,16 @@ namespace GamePlay.Level.Assemble.Runtime
         {
             var assembledCount = 3;
 
-            Debug.Log(_parts.Available.Count);
-
             if (_parts.Available.Count < 3)
                 assembledCount = _parts.Available.Count;
 
             await _ads.ShowRewarded();
-
-            Debug.Log(assembledCount);
 
             for (var i = 0; i < assembledCount; i++)
             {
                 var random = Random.Range(0, _parts.Available.Count);
                 var part = _parts.Available[random];
 
-                Debug.Log(part.transform.parent.name);
                 part.MoveToTarget();
                 _parts.OnLocked(part);
                 _targets.OnTaken(part.Id);
@@ -161,5 +158,30 @@ namespace GamePlay.Level.Assemble.Runtime
             if (_parts.Available.Count == 0)
                 Msg.Publish(new AssembledEvent(_image));
         }
+        
+        // private void Update()
+        // {
+        //     if (Input.GetKey(KeyCode.A) == false)
+        //         return;
+        //     
+        //     var assembledCount = 3;
+        //
+        //     if (_parts.Available.Count < 3)
+        //         assembledCount = _parts.Available.Count;
+        //
+        //     for (var i = 0; i < assembledCount; i++)
+        //     {
+        //         var random = Random.Range(0, _parts.Available.Count);
+        //         var part = _parts.Available[random];
+        //
+        //         Debug.Log(part.transform.parent.name);
+        //         part.MoveToTarget();
+        //         _parts.OnLocked(part);
+        //         _targets.OnTaken(part.Id);
+        //     }
+        //
+        //     if (_parts.Available.Count == 0)
+        //         Msg.Publish(new AssembledEvent(_image));
+        // }
     }
 }

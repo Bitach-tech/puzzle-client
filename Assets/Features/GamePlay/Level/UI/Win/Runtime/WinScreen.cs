@@ -1,8 +1,5 @@
-﻿using GamePlay.Loop.Events;
-using Global.System.MessageBrokers.Runtime;
-using Global.UI.UiStateMachines.Runtime;
+﻿using Global.UI.UiStateMachines.Runtime;
 using UnityEngine;
-using UnityEngine.UI;
 using VContainer;
 
 namespace GamePlay.Level.UI.Win.Runtime
@@ -18,7 +15,6 @@ namespace GamePlay.Level.UI.Win.Runtime
         }
 
         [SerializeField] private GameObject _body;
-        [SerializeField] private Button _menuButton;
 
         private UiConstraints _constraints;
         private IUiStateMachine _stateMachine;
@@ -31,20 +27,15 @@ namespace GamePlay.Level.UI.Win.Runtime
             _body.SetActive(false);
         }
 
-        private void OnEnable()
-        {
-            _menuButton.onClick.AddListener(OnMenuClicked);
-        }
-
-        private void OnDisable()
-        {
-            _menuButton.onClick.RemoveListener(OnMenuClicked);
-        }
-
         public void Open()
         {
             _stateMachine.EnterAsStack(this);
             _body.SetActive(true);
+        }
+
+        public void Close()
+        {
+            _stateMachine.Exit(this);
         }
 
         public void Recover()
@@ -55,11 +46,6 @@ namespace GamePlay.Level.UI.Win.Runtime
         public void Exit()
         {
             _body.SetActive(false);
-        }
-
-        private void OnMenuClicked()
-        {
-            Msg.Publish(new MenuRequestEvent());
         }
     }
 }

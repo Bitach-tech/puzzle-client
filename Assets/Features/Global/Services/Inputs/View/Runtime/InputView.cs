@@ -4,20 +4,23 @@ using Global.Inputs.Constranits.Definition;
 using Global.Inputs.Constranits.Storage;
 using Global.Inputs.View.Logs;
 using Global.Setup.Service.Callbacks;
+using Global.System.Updaters.Runtime.Abstract;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 namespace Global.Inputs.View.Runtime
 {
-    public class InputView : IInputView, IInputViewRebindCallbacks, IGlobalAwakeListener
+    public class InputView : IInputView, IInputViewRebindCallbacks, IGlobalAwakeListener, IUpdatable
     {
         public InputView(
             InputViewLogger logger,
             ICameraUtils cameraUtils,
-            IInputConstraintsStorage constraintsStorage)
+            IInputConstraintsStorage constraintsStorage,
+            IUpdater updater)
         {
             _constraintsStorage = constraintsStorage;
+            _updater = updater;
             _logger = logger;
             _cameraUtils = cameraUtils;
 
@@ -28,6 +31,7 @@ namespace Global.Inputs.View.Runtime
 
         private readonly ICameraUtils _cameraUtils;
         private readonly IInputConstraintsStorage _constraintsStorage;
+        private readonly IUpdater _updater;
 
         private readonly InputViewLogger _logger;
 
@@ -43,18 +47,13 @@ namespace Global.Inputs.View.Runtime
 
         public event Action DebugConsolePreformed;
 
-        private void OnDestroy()
-        {
-            UnListen();
-
-            _controls.Disable();
-        }
-
         public void OnAwake()
         {
             _controls.Enable();
 
             Listen();
+            
+            _updater.Add(this);
         }
 
         public float GetAngleFrom(Vector2 from)
@@ -97,6 +96,8 @@ namespace Global.Inputs.View.Runtime
         {
             var worldPosition = _cameraUtils.ScreenToWorld(_position);
 
+            Debug.Log($"Raw: {_position}, world: {worldPosition}");
+            
             return worldPosition;
         }
 
@@ -162,7 +163,7 @@ namespace Global.Inputs.View.Runtime
             DebugConsolePreformed?.Invoke();
         }
 
-        private void Update()
+        public void OnUpdate(float delta)
         {
             if (Application.isMobilePlatform == true)
             {

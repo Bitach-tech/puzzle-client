@@ -9,6 +9,7 @@ namespace GamePlay.Level.ImageStorage.Runtime
         menuName = ImageStorageRoutes.ImagePath)]
     public class LevelImage : ScriptableObject
     {
+        [SerializeField] private int _index;
         [SerializeField] private Sprite _preview;
         [SerializeField] private Sprite _background;
         [SerializeField] private Sprite[] _images;
@@ -16,6 +17,7 @@ namespace GamePlay.Level.ImageStorage.Runtime
         public Sprite Preview => _preview;
         public Sprite Background => _background;
         public Sprite[] Images => _images;
+        public int Index => _index;
 
         public void SetPreview(Sprite preview)
         {

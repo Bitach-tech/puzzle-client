@@ -1,4 +1,4 @@
 ﻿{
   "name": "Global.Publisher.Saves",
-  "references":[ "GUID:1c34d0f73d5e4f8ba04126019a68e5fe" ]
+  "references":[ "GUID:1c34d0f73d5e4f8ba04126019a68e5fe", "GUID:25f79b9f7aeb42a8af7eb332b6a4ba79" ]
 }

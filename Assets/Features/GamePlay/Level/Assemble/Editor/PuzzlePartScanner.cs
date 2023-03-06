@@ -92,5 +92,31 @@ namespace GamePlay.Level.Assemble.Editor
                 EditorUtility.SetDirty(target);
             }
         }
+        
+        [Button]
+        private void SwitchSprites()
+        {
+            var childCount = transform.childCount;
+
+            for (var i = 0; i < childCount; i++)
+            {
+                var source = transform.GetChild(i).GetChild(0);
+                var target = transform.GetChild(i).GetChild(1);
+                
+                var sourceSprite = source.GetComponent<SpriteRenderer>();
+                var sourceMask = source.GetComponent<SpriteMask>();
+                
+                var targetSprite = target.GetComponent<SpriteRenderer>();
+                var targetMask = target.GetComponent<SpriteMask>();
+                
+                targetSprite.sprite = sourceSprite.sprite;
+                targetMask.sprite = sourceMask.sprite;
+                targetMask.sortingOrder = sourceMask.sortingOrder;
+                targetMask.frontSortingOrder = sourceMask.frontSortingOrder;
+                
+                Undo.RecordObject(target, "Switched");
+                EditorUtility.SetDirty(target);
+            }
+        }
     }
 }

@@ -363,33 +363,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _features:
-  - rid: 960519647634128896
-  - rid: 960519647634128897
-  - rid: 960519647634128898
-  - rid: 960519647634128899
+  - rid: 7089839126727360512
+  - rid: 7089839126727360513
+  - rid: 7089839126727360514
+  - rid: 7089839126727360515
   references:
     version: 2
     RefIds:
-    - rid: 960519647634128896
+    - rid: 7089839126727360512
       type: {class: CenterOffsetSetter, ns: Common.UI.UniversalPlates.Runtime.Plate, asm: Common.UniversalPlate.Runtime}
       data:
         _config: {fileID: 11400000, guid: 814701bd7582c9141aa9ba8fad80b00f, type: 2}
         _center: {fileID: 1904662794443755943}
-    - rid: 960519647634128897
+    - rid: 7089839126727360513
       type: {class: FalloffSetter, ns: Common.UI.UniversalPlates.Runtime.Plate, asm: Common.UniversalPlate.Runtime}
       data:
         _config: {fileID: 11400000, guid: bf39b78bbbfb9634fb97c3aff7c3c4ac, type: 2}
         _plate: {fileID: 208785477319851282}
         _outline: {fileID: 1904662793173364489}
         _center: {fileID: 1904662794443755941}
-    - rid: 960519647634128898
+    - rid: 7089839126727360514
       type: {class: PlateColorSetter, ns: Common.UI.UniversalPlates.Runtime.Plate, asm: Common.UniversalPlate.Runtime}
       data:
-        _color: {r: 0, g: 0, b: 0, a: 1}
+        _color: {r: 0.9607844, g: 0.91372555, b: 0.8117648, a: 1}
         _brightness: {fileID: 11400000, guid: 2ebdcb5a47ac9214a8775144ce6c6ef8, type: 2}
         _plate: {fileID: 208785477319851282}
         _center: {fileID: 1904662794443755941}
-    - rid: 960519647634128899
+    - rid: 7089839126727360515
       type: {class: RadiusSetter, ns: Common.UI.UniversalPlates.Runtime.Plate, asm: Common.UniversalPlate.Runtime}
       data:
         _config: {fileID: 11400000, guid: bd2b91a0844c6934293e4d25fcc6c10b, type: 2}
@@ -422,6 +422,7 @@ GameObject:
   - component: {fileID: 8578772507205695844}
   - component: {fileID: 5440574136647057183}
   - component: {fileID: 1005109033097183060}
+  - component: {fileID: 7578381603052766612}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -546,6 +547,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7578381603052766612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3458493154704151382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef7c5d5794234405bdb3006aecb87240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data: {fileID: 11400000, guid: bbfc9052b82316e44895f29460037159, type: 2}
 --- !u!1 &6699861189437305018
 GameObject:
   m_ObjectHideFlags: 0

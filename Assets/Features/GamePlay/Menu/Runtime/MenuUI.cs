@@ -60,7 +60,7 @@ namespace GamePlay.Menu.Runtime
 
             for (var i = 0; i < images.Count; i++)
             {
-                _selectors[i].gameObject.SetActive(false);
+                _selectors[i].gameObject.SetActive(true);
 
                 if (i >= _freeCounter && save.IsRewarded(i) == false)
                     _selectors[i].Construct(images[i], true, i);
@@ -112,9 +112,9 @@ namespace GamePlay.Menu.Runtime
             Debug.Log($"On unlocked: {id}");
 
             var save = _storage.GetEntry<LevelsSave>(SavesPaths.Levels);
-            save.OnRewarded(id);
+            save.OnUnlocked(id);
 
-            var clicked = new PlayClickEvent(difficulty);
+            var clicked = new PlayRequestEvent(difficulty);
             Msg.Publish(clicked);
         }
     }

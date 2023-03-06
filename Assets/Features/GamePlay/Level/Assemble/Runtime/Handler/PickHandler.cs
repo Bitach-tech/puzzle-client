@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using GamePlay.Level.Assemble.Runtime.Borders;
 using GamePlay.Level.Assemble.Runtime.Parts;
 using GamePlay.Level.Assemble.Runtime.Targets;
 using Global.Inputs.View.Runtime;
@@ -15,9 +16,11 @@ namespace GamePlay.Level.Assemble.Runtime.Handler
             ITargetsStorage targets,
             IUpdater updater,
             IPartsStorage parts,
+            IPuzzleBorders borders,
             PickHandlerConfigAsset config)
         {
             _parts = parts;
+            _borders = borders;
             _inputView = inputView;
             _targets = targets;
             _updater = updater;
@@ -28,6 +31,7 @@ namespace GamePlay.Level.Assemble.Runtime.Handler
         private readonly ITargetsStorage _targets;
         private readonly IUpdater _updater;
         private readonly IPartsStorage _parts;
+        private readonly IPuzzleBorders _borders;
         private readonly PickHandlerConfigAsset _config;
 
         private UniTaskCompletionSource<PuzzleTarget> _completion;
@@ -59,7 +63,10 @@ namespace GamePlay.Level.Assemble.Runtime.Handler
 
         public void OnUpdate(float delta)
         {
-            _current.SetPosition(_inputView.ScreenToWorld());
+            var world = _inputView.ScreenToWorld();
+            world = _borders.Clamp(world);
+            
+            _current.SetPosition(world);
             
             if (_inputView.IsLeftMouseButtonPressed == true)
                 return;

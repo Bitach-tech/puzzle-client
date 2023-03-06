@@ -64,6 +64,7 @@ namespace GamePlay.Level.Assemble.Runtime
         public void SetPosition(Vector2 position)
         {
             _transform.position = position;
+            Debug.Log(position);
         }
 
         public void Lock()

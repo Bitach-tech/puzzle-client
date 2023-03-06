@@ -10,7 +10,8 @@ namespace GamePlay.Level.Assemble.Runtime.Parts
         private readonly List<PuzzlePart> _available = new();
 
         public IReadOnlyList<PuzzlePart> Available => _available;
-        
+        public IReadOnlyList<PuzzlePart> All => _all;
+
         public void Add(PuzzlePart part)
         {
             _available.Add(part);

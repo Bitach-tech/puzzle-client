@@ -9,19 +9,26 @@ namespace Global.Publisher.Abstract.Saves
     [Serializable]
     public class LevelsSave : IStorageEntry
     {
-        private Dictionary<int, bool> _levels = new();
+        private Dictionary<int, bool> _unlocked = new();
+        private Dictionary<int, bool> _assembled = new();
 
         public string Key => SavesPaths.Levels;
         public event Action Changed;
 
         public void CreateDefault()
         {
-            _levels = new Dictionary<int, bool>();
+            _unlocked = new Dictionary<int, bool>();
         }
 
         public string Serialize()
         {
-            var raw = JsonConvert.SerializeObject(_levels);
+            var save = new
+            {
+                Unlocked = _unlocked,
+                Assembled = _assembled
+            };
+            
+            var raw = JsonConvert.SerializeObject(save);
             Debug.Log($"Serialize: {raw}");
 
             return raw;
@@ -29,26 +36,52 @@ namespace Global.Publisher.Abstract.Saves
 
         public void Deserialize(string raw)
         {
-            _levels = JsonConvert.DeserializeObject<Dictionary<int, bool>>(raw);
-
+            var definition = new
+            {
+                Unlocked = new Dictionary<int, bool>(),
+                Assembled = new Dictionary<int, bool>()
+            };
+            
+            var save = JsonConvert.DeserializeAnonymousType(raw, definition);
+            
+            _unlocked = save.Unlocked;
+            _assembled = save.Assembled;
+            
             Debug.Log($"Deserialize: {raw}");
         }
 
-        public void OnRewarded(int index)
+        public void OnUnlocked(int index)
         {
-            _levels[index] = true;
+            _unlocked[index] = true;
 
-            Debug.Log($"On rewarded: {index}");
+            Debug.Log($"On unlocked: {index}");
+
+            Changed?.Invoke();
+        }
+        
+        public void OnAssembled(int index)
+        {
+            _assembled[index] = true;
+
+            Debug.Log($"On assembled: {index}");
 
             Changed?.Invoke();
         }
 
         public bool IsRewarded(int index)
         {
-            if (_levels.ContainsKey(index) == false)
+            if (_unlocked.ContainsKey(index) == false)
                 return false;
 
-            return _levels[index];
+            return _unlocked[index];
+        }
+        
+        public bool IsAssembled(int index)
+        {
+            if (_assembled.ContainsKey(index) == false)
+                return false;
+
+            return _assembled[index];
         }
     }
 }

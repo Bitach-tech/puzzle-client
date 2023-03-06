@@ -1,4 +1,5 @@
 ﻿using GamePlay.Level.Assemble.Runtime.Background;
+using GamePlay.Level.Assemble.Runtime.Borders;
 using GamePlay.Level.Assemble.Runtime.Parts;
 using GamePlay.Level.Assemble.Runtime.StartPositions;
 using GamePlay.Level.Assemble.Runtime.Targets;
@@ -13,10 +14,12 @@ namespace GamePlay.Level.Assemble.Runtime
         [SerializeField] private TargetsStorage _targets;
         [SerializeField] private RandomStartPositions _randomStartPositions;
         [SerializeField] private PuzzleBackground _background;
+        [SerializeField] private PuzzleBorders _borders;
         
         public PartsStorage Parts => _parts;
         public TargetsStorage Targets => _targets;
         public RandomStartPositions RandomStartPositions => _randomStartPositions;
         public PuzzleBackground Background => _background;
+        public PuzzleBorders Borders => _borders;
     }
 }
